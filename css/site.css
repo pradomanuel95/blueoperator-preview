@@ -1259,3 +1259,6 @@ h3 { line-height: 1.25; }
   .hero-phone { margin-left: 12px; }
   .hero-phone a.btn { min-width: 220px; }
 }
+@media (max-width: 899px) {
+  .hero-actions .trust-row { justify-content: center; text-align: center; }
+}
