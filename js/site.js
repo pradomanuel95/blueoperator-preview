@@ -78,7 +78,7 @@
       var limit = window.innerHeight - (document.body.classList.contains("has-sticky") ? dock : 0);
       var photoPast = photoBox.bottom < 4;
       var contactVisible = contactBox.bottom > 72 && contactBox.top < limit - 4;
-      var show = photoPast && !contactVisible;
+      var show = true;
       bar.classList.toggle("is-visible", show);
       document.body.classList.toggle("has-sticky", show);
     };

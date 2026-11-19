@@ -259,7 +259,7 @@ h3 { line-height: 1.25; }
   gap: 6px 12px;
   padding: 0;
   margin: 12px 0 0;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--navy);
 }
@@ -1243,3 +1243,19 @@ h3 { line-height: 1.25; }
 
 /* menu Contact Us button: white text on navy */
 .site-nav a.btn.nav-cta, .site-nav a.btn.nav-cta:visited, .site-nav a.btn.nav-cta:hover { color: #fff !important; }
+
+/* Nov 19 hero cleanup */
+.nav-dup { display: none !important; }
+.tagline em { font-size: 1.45rem; }
+.tagline-sub { font-size: 1.08rem; font-weight: 600; color: var(--navy); opacity: .85; }
+.trust-row img { width: 18px; height: 18px; }
+.hero-phone a.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-size: 1.15rem; font-weight: 800; letter-spacing: 0; color: var(--navy); }
+.hero-phone a.btn svg { color: var(--blue-deep); }
+@media (max-width: 899px) {
+  .hero-phone, .mobile-contact { display: none !important; }
+}
+@media (min-width: 900px) {
+  .hero-actions .cta-line, .hero-phone { display: inline-block; margin: 0; vertical-align: middle; }
+  .hero-phone { margin-left: 12px; }
+  .hero-phone a.btn { min-width: 220px; }
+}
