@@ -1240,3 +1240,6 @@ h3 { line-height: 1.25; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   .sticky-contact, .nav-burger { display: none !important; }
 }
+
+/* menu Contact Us button: white text on navy */
+.site-nav a.btn.nav-cta, .site-nav a.btn.nav-cta:visited, .site-nav a.btn.nav-cta:hover { color: #fff !important; }
