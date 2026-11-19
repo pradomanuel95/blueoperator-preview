@@ -1013,18 +1013,9 @@ h3 { line-height: 1.25; }
 }
 
 @media (max-width: 899px) {
-  body:has(.page-scroll) {
-    height: 100dvh;
-    overflow: hidden;
-  }
-  .page-scroll {
-    height: 100dvh;
-    overflow: auto;
-    scroll-padding-top: 84px;
-  }
-  body.has-sticky .page-scroll {
-    height: calc(100dvh - 68px - env(safe-area-inset-bottom));
-  }
+  .page-scroll { scroll-padding-top: 84px; }
+  html { scroll-padding-top: 84px; }
+  body.has-sticky { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
   .sticky-contact {
     position: fixed;
     left: 0;

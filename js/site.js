@@ -85,6 +85,8 @@
     if (scroller) scroller.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
+    window.addEventListener("pageshow", sync);
+    window.addEventListener("orientationchange", sync);
     sync();
   }
 })();
