@@ -1262,3 +1262,6 @@ h3 { line-height: 1.25; }
 @media (max-width: 899px) {
   .hero-actions .trust-row { justify-content: center; text-align: center; }
 }
+@media (min-width: 900px) {
+  .site-nav a.btn.nav-cta { padding: 11px 24px !important; white-space: nowrap; font-size: 0.9rem; border-radius: 12px; }
+}
