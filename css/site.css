@@ -504,8 +504,10 @@ h3 { line-height: 1.25; }
   width: max-content;
   animation: logo-marquee 76s linear infinite;
 }
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+  .marquee:has(a:hover) .marquee-track { animation-play-state: paused; }
+}
+.marquee:has(a:focus-visible) .marquee-track { animation-play-state: paused; }
 .partner-set {
   display: flex;
   align-items: center;
@@ -523,6 +525,9 @@ h3 { line-height: 1.25; }
 }
 .partner-set .partner-static {
   cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
 }
 .partner-set img {
   width: auto;
