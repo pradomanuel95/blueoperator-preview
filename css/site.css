@@ -759,9 +759,9 @@ h3 { line-height: 1.25; }
 .request-photo { margin: 0; }
 .request-photo img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: center;
+  object-position: center 55%;
 }
 
 .step-radio {
