@@ -1320,3 +1320,17 @@ h3 { line-height: 1.25; }
 .footer-hours { margin: 14px 0 0; }
 .footer-hours p { margin: 2px 0; }
 .footer-hours .footer-hours-label { font-weight: 700; color: #fff; margin: 0 0 4px; }
+
+/* Header phone: shown on load; on mobile it hides once scrolling starts and the bottom bar takes over */
+.header-phone{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:1rem;color:var(--navy);text-decoration:none;white-space:nowrap;transition:opacity .25s ease,visibility .25s ease}
+.header-phone svg{color:var(--blue-deep);flex:none}
+@media (max-width:899px){
+  .header-bar{gap:10px}
+  .logo img{width:118px}
+  .site-header.is-scrolled .header-phone{opacity:0;visibility:hidden;pointer-events:none}
+  .sticky-contact{transition:transform .3s ease,visibility .3s ease}
+}
+@media (min-width:900px){
+  .site-nav{order:1;margin-left:auto}
+  .header-bar .header-phone{order:3;margin-left:12px;font-size:1.05rem}
+}

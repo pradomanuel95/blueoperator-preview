@@ -70,6 +70,7 @@
       var mobile = window.matchMedia("(max-width: 899px)").matches;
       if (!mobile) {
         bar.classList.remove("is-visible");
+        if (header) header.classList.remove("is-scrolled");
         document.body.classList.remove("has-sticky");
         return;
       }
@@ -78,7 +79,9 @@
       var limit = window.innerHeight - (document.body.classList.contains("has-sticky") ? dock : 0);
       var photoPast = photoBox.bottom < 4;
       var contactVisible = contactBox.bottom > 72 && contactBox.top < limit - 4;
-      var show = true;
+      var y = Math.max(window.scrollY || 0, scroller ? scroller.scrollTop : 0);
+      var show = y > 40;
+      if (header) header.classList.toggle("is-scrolled", show);
       bar.classList.toggle("is-visible", show);
       document.body.classList.toggle("has-sticky", show);
     };
