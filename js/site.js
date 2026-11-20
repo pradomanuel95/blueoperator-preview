@@ -66,6 +66,8 @@
   var scroller = document.querySelector(".page-scroll");
   if (bar && photo && inline) {
     var dock = 68;
+    var popped = false;
+    try { popped = sessionStorage.getItem("boCallPop") === "1"; } catch (e) {}
     var sync = function () {
       var mobile = window.matchMedia("(max-width: 899px)").matches;
       if (!mobile) {
@@ -84,7 +86,9 @@
       if (header) header.classList.toggle("is-scrolled", show);
       var was = bar.classList.contains("is-visible");
       bar.classList.toggle("is-visible", show);
-      if (show && !was && !reduce) {
+      if (show && !was && !reduce && !popped) {
+        popped = true;
+        try { sessionStorage.setItem("boCallPop", "1"); } catch (e) {}
         bar.classList.remove("is-popping");
         void bar.offsetWidth;
         bar.classList.add("is-popping");
