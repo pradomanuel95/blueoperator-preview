@@ -1334,3 +1334,23 @@ h3 { line-height: 1.25; }
   .site-nav{order:1;margin-left:auto}
   .header-bar .header-phone{order:3;margin-left:12px;font-size:1.05rem}
 }
+
+/* Bottom call bar: pops up big and high when it first appears, then settles at the bottom */
+@keyframes bar-pop {
+  0%   { transform: translateY(110%); height: calc(68px + env(safe-area-inset-bottom)); }
+  30%  { transform: translateY(-140px); height: calc(96px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 40px rgba(16,36,56,.35), 0 18px 40px rgba(16,36,56,.3); }
+  60%  { transform: translateY(-140px); height: calc(96px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 40px rgba(16,36,56,.35), 0 18px 40px rgba(16,36,56,.3); }
+  85%  { transform: translateY(-8px); height: calc(68px + env(safe-area-inset-bottom)); }
+  93%  { transform: translateY(3px); }
+  100% { transform: none; height: calc(68px + env(safe-area-inset-bottom)); }
+}
+@keyframes bar-pop-btn {
+  0%, 100% { min-height: 46px; font-size: 0.9rem; }
+  30%, 60% { min-height: 74px; font-size: 1.04rem; }
+  85% { min-height: 46px; font-size: 0.9rem; }
+}
+@media (max-width:899px) and (prefers-reduced-motion: no-preference) {
+  .sticky-contact.is-visible.is-popping { animation: bar-pop 1.6s cubic-bezier(.22,.9,.3,1) both; }
+  .sticky-contact.is-popping .btn { animation: bar-pop-btn 1.6s cubic-bezier(.22,.9,.3,1) both; }
+}
+@media (max-width:899px) { .sticky-contact .btn { display:flex; align-items:center; justify-content:center; text-align:center; white-space:nowrap; } }

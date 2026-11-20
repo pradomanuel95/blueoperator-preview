@@ -82,7 +82,13 @@
       var y = Math.max(window.scrollY || 0, scroller ? scroller.scrollTop : 0);
       var show = y > 40;
       if (header) header.classList.toggle("is-scrolled", show);
+      var was = bar.classList.contains("is-visible");
       bar.classList.toggle("is-visible", show);
+      if (show && !was && !reduce) {
+        bar.classList.remove("is-popping");
+        void bar.offsetWidth;
+        bar.classList.add("is-popping");
+      }
       document.body.classList.toggle("has-sticky", show);
     };
     if (scroller) scroller.addEventListener("scroll", sync, { passive: true });
@@ -90,6 +96,7 @@
     window.addEventListener("resize", sync);
     window.addEventListener("pageshow", sync);
     window.addEventListener("orientationchange", sync);
+    bar.addEventListener("animationend", function (e) { if (e.target === bar) bar.classList.remove("is-popping"); });
     sync();
   }
 })();
