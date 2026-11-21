@@ -64,7 +64,7 @@
   var photo = document.querySelector(".hero-photo");
   var inline = document.querySelector(".mobile-contact");
   var scroller = document.querySelector(".page-scroll");
-  if (bar && photo && inline) {
+  if (bar) {
     var dock = 68;
     var popped = false;
     try { popped = sessionStorage.getItem("boCallPop") === "1"; } catch (e) {}
@@ -76,11 +76,6 @@
         document.body.classList.remove("has-sticky");
         return;
       }
-      var photoBox = photo.getBoundingClientRect();
-      var contactBox = inline.getBoundingClientRect();
-      var limit = window.innerHeight - (document.body.classList.contains("has-sticky") ? dock : 0);
-      var photoPast = photoBox.bottom < 4;
-      var contactVisible = contactBox.bottom > 72 && contactBox.top < limit - 4;
       var y = Math.max(window.scrollY || 0, scroller ? scroller.scrollTop : 0);
       var show = y > 40;
       if (header) header.classList.toggle("is-scrolled", show);
@@ -102,5 +97,40 @@
     window.addEventListener("orientationchange", sync);
     bar.addEventListener("animationend", function (e) { if (e.target === bar) bar.classList.remove("is-popping"); });
     sync();
+  }
+})();
+
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function headerOffset() {
+    var h = document.querySelector(".site-header");
+    return (h ? h.getBoundingClientRect().height : 0) + 12;
+  }
+  function goTo(id, smooth) {
+    var el = document.getElementById(id);
+    if (!el) return false;
+    el.classList.add("is-in");
+    var y = 0, n = el;
+    while (n) { y += n.offsetTop; n = n.offsetParent; }
+    var top = y - headerOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: smooth && !reduce ? "smooth" : "auto" });
+    return true;
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="#our-story"]') : null;
+    if (!a) return;
+    var url = new URL(a.getAttribute("href"), location.href);
+    if (url.pathname.replace(/index\.html$/, "") !== location.pathname.replace(/index\.html$/, "")) return;
+    if (!document.getElementById("our-story")) return;
+    e.preventDefault();
+    var t = document.getElementById("nav-toggle");
+    if (t) t.checked = false;
+    goTo("our-story", true);
+    if (history.replaceState) history.replaceState(null, "", "#our-story");
+  });
+  if (location.hash === "#our-story") {
+    var land = function () { goTo("our-story", false); };
+    window.addEventListener("load", function () { land(); setTimeout(land, 350); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(land);
   }
 })();
