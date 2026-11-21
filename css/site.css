@@ -1369,3 +1369,39 @@ h3 { line-height: 1.25; }
 @media (max-width:899px) and (prefers-reduced-motion: no-preference) {
   .sticky-contact.is-visible:not(.is-popping) .btn-yellow { animation: call-wiggle 10s ease-in-out 3s infinite; }
 }
+
+/* ---- Area (location) pages ---- */
+.local { background: #fff; border-top: 1px solid var(--line); }
+.local-grid { display: grid; gap: 0; }
+.local-copy { padding: 56px 20px 28px; }
+.local-copy h2 { font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.7rem); margin: 0 0 16px; text-wrap: balance; }
+.local-copy p { line-height: 1.75; color: #243646; margin: 0 0 14px; }
+.local-copy p:last-child { margin-bottom: 0; }
+.local-copy a, .area-extra a, .faq-list a { color: var(--navy); font-weight: 700; text-underline-offset: 3px; }
+.local-photo { margin: 0; padding: 0 20px 56px; }
+.local-photo-frame { position: relative; border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-lift); }
+.local-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+.local-photo figcaption {
+  position: absolute; left: 12px; bottom: 12px; max-width: calc(100% - 24px);
+  background: rgba(20, 36, 51, 0.8); color: #fff; font-size: 0.82rem; font-weight: 600;
+  padding: 7px 12px; border-radius: 999px; line-height: 1.3;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.local-nophoto .local-copy { max-width: 860px; margin: 0 auto; padding-bottom: 56px; }
+.proud { text-wrap: balance; }
+.area-extra { background: #fff; padding: 64px 0; text-align: center; border-top: 1px solid var(--line); }
+.area-extra h2 { font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.7rem); margin: 0 0 14px; }
+.area-extra p { line-height: 1.7; color: #243646; font-size: 1.08rem; margin: 0 auto; max-width: 680px; }
+.review-card-quote .review-stars { margin: 0; font-size: 1.2rem; }
+.review-card-quote .review-quote { margin-top: 10px; font-style: italic; font-size: 1.05rem; }
+@media (min-width: 900px) {
+  .local { padding: 96px 0; }
+  .local-grid { grid-template-columns: 1.08fr 0.92fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .local-copy { padding: 0; }
+  .local-photo { padding: 0; }
+  .local-photo img { aspect-ratio: 4 / 5; }
+  .local-photo figcaption { left: 16px; bottom: 16px; font-size: 0.86rem; }
+  .local-nophoto .local-grid { grid-template-columns: 1fr; max-width: 900px; }
+  .local-nophoto .local-copy { padding: 0; }
+  .area-extra { padding: 88px 0; }
+}
