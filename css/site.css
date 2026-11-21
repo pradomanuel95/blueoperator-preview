@@ -287,7 +287,8 @@ h3 { line-height: 1.25; }
   margin: 0 0 14px;
 }
 .serving { margin: 0 0 14px; }
-.serving a {
+.serving a, .serving-text {
+  cursor: default;
   display: inline-flex;
   align-items: center;
   gap: 8px;
