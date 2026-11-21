@@ -1759,6 +1759,12 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 .ct-info a { color: var(--navy); font-weight: 700; }
 .ct-social { display: flex; gap: 10px; }
 .ct-social img { display: block; width: 28px; height: 28px; }
+.ct-hero .ct-steps li { color: var(--navy); }
+.ct-hero .ct-steps { display: inline-grid; margin-left: auto; margin-right: auto; }
+.ct-formband .rp-form-card { background: none; border: 0; box-shadow: none; padding: 0; }
+.ct-formband .rp-form-card .estimate-card { margin: 0 auto; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--yellow); box-shadow: var(--shadow); max-width: 520px; }
+.rp-legal-card .rp-legal-h { font-size: 1.2rem; line-height: 1.3; text-align: left; color: var(--ink); margin: 28px 0 8px; }
+.ct-form-head { text-align: center; margin: 0 0 22px; font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.4rem); color: var(--ink); }
 .rp-legal-dates p { display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--blue-deep); background: #eaf4fb; border-radius: 999px; padding: 6px 14px; margin: 0 8px 10px 0 !important; }
 /* Blog */
 .bl-list { background: var(--mist); padding: 36px 0 64px; }
