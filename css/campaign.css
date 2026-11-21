@@ -142,3 +142,6 @@
 .cp-info a { overflow-wrap: normal; word-break: normal; }
 @media (max-width: 420px) { .cp-info a { overflow-wrap: anywhere; } }
 .cp-form .estimate-card label.check { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.cp-bonus-grid { max-width: 920px; margin-left: auto; margin-right: auto; }
+.cp-head .cp-intro strong { color: var(--ink); font-weight: 800; }
+.page-campaign .estimate-card .phone-field input[type="tel"] { border: 0; margin: 0; min-height: 46px; padding-left: 0; background: transparent; }
