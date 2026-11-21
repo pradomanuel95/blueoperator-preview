@@ -1,0 +1,144 @@
+/* Campaign landing pages (postcard, neighbor, startup, aiper, contact-us offers). Loaded after site.css. */
+.page-campaign main { background: #fff; }
+.cp-hero, .cp-banner { position: relative; isolation: isolate; color: #fff; overflow: hidden; background: var(--navy); }
+.cp-hero-photo { position: absolute; inset: 0; margin: 0; z-index: -2; }
+.cp-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+.cp-hero::after, .cp-banner::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(14, 34, 52, 0.80), rgba(14, 34, 52, 0.88)); }
+.cp-hero-inner { padding: 56px 0 60px; text-align: center; }
+.cp-hero h1 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.01em; }
+.cp-hero .cp-intro { font-size: 1.12rem; line-height: 1.6; margin: 0 auto 10px; max-width: 640px; color: #eef6fb; }
+.cp-hero .cp-small { font-size: 0.92rem; font-style: italic; color: #d6e6f1; margin: 0 0 6px; }
+.cp-hero-cta { margin: 22px 0 0; }
+.cp-hero a.tel-inline, .cp-ready a.tel-inline { color: var(--yellow); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.cp-lang { margin: 0 0 18px; text-align: right; }
+.cp-lang a { display: inline-block; color: var(--ink); background: #fff; font-weight: 800; font-size: 0.9rem; padding: 7px 14px; border-radius: 999px; text-decoration: none; }
+.cp-hero-slim .cp-hero-inner { padding: 48px 0 44px; }
+.cp-hero-slim h1 { margin: 0; }
+
+.cp-formsec { padding: 44px 0 20px; background: var(--mist); }
+.cp-form-intro { text-align: center; font-weight: 700; color: var(--navy); margin: 0 0 16px; }
+.cp-form .estimate-card { max-width: 760px; margin: 0 auto; padding: 26px 24px 22px; }
+.cp-row { display: grid; gap: 0 16px; }
+.cp-know { font-weight: 800; color: var(--ink); margin: 6px 0 10px; }
+.cp-form .step-nav .btn { width: 100%; }
+@media (min-width: 700px) {
+  .cp-row { grid-template-columns: 1fr 1fr; }
+  .cp-row-addr { grid-template-columns: 2fr 1fr; }
+}
+.cp-checksec { padding: 24px 0 52px; background: var(--mist); }
+.cp-checksec-last { padding-bottom: 72px; }
+.cp-checks { list-style: none; padding: 0; margin: 0 auto; display: grid; gap: 10px; max-width: 620px; }
+.cp-checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; color: var(--ink); line-height: 1.45; }
+.cp-checks img { flex: none; margin-top: 2px; }
+.cp-checks-lg li { font-size: 1.05rem; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow); }
+
+.cp-why { padding: 64px 0; }
+.cp-why h2, .cp-reviews h2, .cp-how h2, .cp-includes h2, .cp-ready h2 { text-align: center; }
+.cp-center { text-align: center; }
+
+.cp-reviews { padding: 60px 0; background: var(--mist); }
+.cp-reviews h2 { margin: 0 0 6px; }
+.cp-reviews-sub { text-align: center; margin: 0 0 26px; }
+.cp-reviews-sub a { color: var(--blue-deep); font-weight: 700; }
+.cp-rgrid { display: grid; gap: 16px; margin-top: 22px; }
+@media (min-width: 760px) { .cp-rgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .cp-rgrid { grid-template-columns: repeat(4, 1fr); } }
+.cp-rcard { height: 100%; }
+.cp-more { text-align: center; margin: 28px 0 0; }
+.cp-more a { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; color: var(--ink); font-weight: 800; font-size: 1.25rem; text-decoration: none; }
+
+.cp-trust { background: var(--navy); color: #fff; padding: 18px 0; text-align: center; }
+.cp-trust p { margin: 0; font-weight: 700; letter-spacing: 0.01em; }
+
+.cp-how { padding: 60px 0 30px; }
+.cp-steps { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+.cp-steps li { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; box-shadow: var(--shadow); }
+.cp-num { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--yellow); color: var(--ink); font-weight: 800; display: grid; place-items: center; }
+.cp-steps h3 { margin: 6px 0 4px; font-size: 1.15rem; }
+.cp-steps p { margin: 0; color: var(--muted); line-height: 1.55; }
+.cp-faq { padding-top: 40px; }
+.cp-fine { font-size: 0.85rem; color: var(--muted); margin: 26px 0 0; line-height: 1.55; text-align: center; }
+
+.cp-ready { background: var(--navy); color: #fff; padding: 56px 0 64px; text-align: center; }
+.cp-ready h2 { color: #fff; margin: 0 0 8px; }
+.cp-ready p { margin: 0 0 18px; color: #eef6fb; }
+.cp-ready-cta { margin: 0; }
+
+.cp-head { padding: 48px 0 36px; text-align: center; }
+.cp-h { font-size: clamp(1.8rem, 3.8vw, 2.6rem); line-height: 1.15; margin: 0 0 14px; color: var(--ink); }
+.cp-head .cp-intro { font-size: 1.08rem; line-height: 1.6; margin: 0 auto 18px; max-width: 660px; color: var(--ink); }
+.cp-head .cp-intro p { margin: 0; }
+.cp-head .cp-checks { max-width: 560px; text-align: left; }
+.cp-bigtel { margin: 0 0 10px; }
+.cp-bigtel a { font-size: clamp(1.7rem, 3.6vw, 2.3rem); font-weight: 800; color: var(--navy); text-decoration: underline; text-underline-offset: 5px; }
+
+.cp-includes { padding: 56px 0; }
+.cp-includes .cp-checks { margin-top: 22px; }
+
+.cp-bonus { padding: 56px 0; background: var(--mist); }
+.cp-bonus-grid { display: grid; gap: 26px; align-items: center; }
+.cp-bonus figure { margin: 0; justify-self: center; max-width: 340px; }
+.cp-bonus figure img { width: 100%; height: auto; border-radius: 18px; box-shadow: var(--shadow-lift); }
+.cp-bonus h2 { margin: 0 0 10px; }
+.cp-bonus p { line-height: 1.6; color: var(--ink); }
+@media (min-width: 800px) { .cp-bonus-grid { grid-template-columns: 340px 1fr; gap: 48px; } }
+
+/* Aiper banner (rebuilt from the live image banner) */
+.cp-banner-grid { display: grid; gap: 18px; padding: 40px 0 44px; align-items: center; text-align: center; }
+.cp-banner-name { font-family: var(--serif); font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 800; margin: 0 0 6px; color: #fff; }
+.cp-banner-sub { margin: 0; color: #e3eef6; line-height: 1.5; }
+.cp-banner-offer p { margin: 0 0 8px; }
+.cp-banner-price .cp-now { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 800; color: #7ee081; }
+.cp-banner-price s { font-size: 1.4rem; color: #ffb4b4; font-weight: 700; margin-left: 6px; }
+.cp-banner-pct { display: inline-block; background: #fff; color: var(--ink); font-weight: 800; font-style: italic; font-size: 1.35rem; padding: 4px 16px; border-radius: 6px; }
+.cp-banner-note { display: block; background: var(--yellow); color: var(--ink); font-weight: 800; font-style: italic; padding: 8px 14px; border-radius: 6px; max-width: 300px; margin: 4px auto 14px !important; }
+.cp-banner-prod { margin: 0 auto; width: 210px; background: #fff; border-radius: 20px; padding: 10px; box-shadow: var(--shadow-lift); }
+.cp-banner-prod img { width: 100%; height: auto; display: block; }
+@media (min-width: 900px) {
+  .cp-banner-grid { grid-template-columns: 1.1fr 1fr 240px; text-align: left; padding: 52px 0; }
+  .cp-banner-note { margin: 4px 0 14px !important; }
+  .cp-banner-prod { width: 240px; }
+}
+.cp-banner30 { display: grid; gap: 12px; justify-items: center; padding: 44px 0 48px; text-align: center; }
+.cp-save { font-family: var(--serif); font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 800; font-style: italic; margin: 0; color: #fff; letter-spacing: 0.02em; }
+.cp-tag-y { display: inline-block; background: var(--yellow); color: var(--navy); font-family: var(--serif); font-weight: 800; font-style: italic; font-size: clamp(1.8rem, 4.6vw, 2.8rem); padding: 4px 22px; margin: 0; transform: skewX(-8deg); }
+.cp-tag-r { display: block; background: #e8322e; color: #fff; font-weight: 800; font-style: italic; font-size: clamp(1.1rem, 2.6vw, 1.5rem); padding: 6px 18px; margin: 6px auto 0; width: max-content; transform: skewX(-8deg); }
+.cp-banner30 p:last-child { margin: 10px 0 0; }
+@media (min-width: 900px) { .cp-banner30 { grid-template-columns: auto auto auto; justify-content: center; align-items: center; gap: 32px; } .cp-banner30 p:last-child { margin: 0; } }
+
+.cp-claim { padding: 40px 0 48px; }
+.cp-claim-wrap { display: flex; justify-content: center; }
+.cp-claim-wrap .estimate { width: 100%; max-width: 560px; }
+.cp-claim-wrap .estimate-card { max-width: none; }
+.cp-info { display: grid; gap: 14px; margin: 28px auto 0; max-width: 760px; text-align: center; }
+.cp-info p { margin: 0; }
+.cp-label { font-weight: 800; color: var(--ink); margin-bottom: 4px !important; }
+.cp-info a { color: var(--blue-deep); font-weight: 700; overflow-wrap: anywhere; }
+.cp-social { display: flex; gap: 10px; justify-content: center; }
+@media (min-width: 700px) { .cp-info { grid-template-columns: repeat(3, 1fr); } }
+
+/* Aiper C: focused bar + minimal chrome */
+.cp-aiperbar { background: #fff8db; border-bottom: 1px solid #f3e2a0; padding: 22px 0; }
+.cp-aiperbar-grid { display: grid; gap: 12px; justify-items: center; text-align: center; }
+.cp-aiperbar img { width: 120px; height: 120px; object-fit: contain; border-radius: 14px; background: #fff; }
+.cp-aiperbar h1 { font-size: 1.6rem; margin: 0 0 4px; }
+.cp-aiperbar p { margin: 0; }
+.cp-aiperbar-price .cp-now { font-size: 1.7rem; font-weight: 800; color: var(--ink); }
+.cp-aiperbar-price s { color: #b3261e; font-weight: 700; margin: 0 6px; }
+.cp-aiperbar-when { color: var(--muted); margin-top: 4px !important; }
+@media (min-width: 800px) { .cp-aiperbar-grid { grid-template-columns: 120px 1fr auto; text-align: left; justify-items: start; align-items: center; gap: 24px; } }
+.cp-min-header .header-bar { display: flex; align-items: center; justify-content: space-between; }
+.cp-min-tel { font-weight: 800; color: var(--navy); text-decoration: none; }
+.cp-min-footer { padding: 26px 0 96px; text-align: center; }
+.cp-min-footer p { margin: 0; color: #cfe0ec; }
+@media (min-width: 700px) {
+  .cp-hero-cta .btn, .cp-ready-cta .btn, .cp-banner .btn, .cp-bonus .btn, .cp-aiperbar .btn, .cp-center .btn { width: auto; min-width: 280px; padding-left: 34px; padding-right: 34px; }
+}
+.cp-form .check { font-weight: 600; color: var(--ink); gap: 10px; }
+.cp-form .check input[type="radio"] { flex: none; width: 18px; height: 18px; margin: 0; accent-color: var(--navy); }
+@media (min-width: 1100px) { .cp-rgrid { grid-template-columns: repeat(2, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; } }
+.cp-info { max-width: 920px; }
+.cp-info a { overflow-wrap: normal; word-break: normal; }
+@media (max-width: 420px) { .cp-info a { overflow-wrap: anywhere; } }
+.cp-form .estimate-card label.check { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
