@@ -134,3 +134,26 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(land);
   }
 })();
+(function () {
+  document.querySelectorAll("[data-gallery]").forEach(function (g) {
+    var track = g.querySelector("[data-gallery-track]");
+    if (!track) return;
+    var slides = track.children;
+    var thumbs = g.querySelectorAll("[data-gallery-go]");
+    function idx() { return Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); }
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+    }
+    function mark() {
+      var i = idx();
+      thumbs.forEach(function (t, k) { t.classList.toggle("is-active", k === i); });
+    }
+    thumbs.forEach(function (t) { t.addEventListener("click", function () { go(+t.getAttribute("data-gallery-go")); }); });
+    var p = g.querySelector("[data-gallery-prev]"), n = g.querySelector("[data-gallery-next]");
+    if (p) p.addEventListener("click", function () { go(idx() - 1); });
+    if (n) n.addEventListener("click", function () { go(idx() + 1); });
+    track.addEventListener("scroll", function () { window.requestAnimationFrame(mark); }, { passive: true });
+    mark();
+  });
+})();
