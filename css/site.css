@@ -1630,3 +1630,16 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   .rp-finance-logo { padding: 0 20px 0 0; border-right: 1px solid var(--line); align-self: stretch; display: flex; align-items: center; }
   .rp-finance-logo img { width: 170px; }
 }
+
+/* Service pages: top Google review + testimonials */
+.rp-topreview { background: #fff; padding: 26px 0 6px; }
+.rp-review-card { max-width: 720px; margin: 0 auto; padding: 22px 22px 20px; }
+.rp-review-card .review-quote { font-style: normal; font-size: 1rem; }
+.rp-review-card .review-source { margin-top: 14px; }
+.rp-testimonials .t-card p:last-child { font-style: normal; }
+@media (min-width: 900px) {
+  .rp-topreview { padding: 40px 0 10px; }
+  .rp-review-card { padding: 26px 30px 26px; }
+  .rp-review-card .review-quote { font-size: 1.06rem; }
+  .rp-review-card .review-source { margin-top: 16px; }
+}
