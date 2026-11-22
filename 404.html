@@ -8,7 +8,7 @@
 <script>
 // /quote/<token> (the link format in our texts) -> /quote/?t=<token>. GitHub Pages has no rewrites.
 (function () {
-  var m = location.pathname.match(/^(.*)\/quote\/([A-Za-z0-9]{16,40})\/?$/);
+  var m = location.pathname.match(/^(.*)\/quote\/([A-Za-z0-9_-]{16,40})\/?$/);
   if (m) location.replace(m[1] + '/quote/?t=' + m[2]);
 })();
 </script>

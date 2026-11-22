@@ -30,10 +30,10 @@
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function token() {
-    var m = location.pathname.match(/\/quote\/([A-Za-z0-9]{16,40})\/?$/);
+    var m = location.pathname.match(/\/quote\/([A-Za-z0-9_-]{16,40})\/?$/);
     if (m) return m[1];
     var t = qs.get('t') || '';
-    return /^[A-Za-z0-9]{16,40}$/.test(t) ? t : '';
+    return /^[A-Za-z0-9_-]{16,40}$/.test(t) ? t : '';
   }
   function setLang(lang) { L = T[lang === 'es' ? 'es' : 'en']; document.documentElement.lang = lang === 'es' ? 'es' : 'en'; }
 
@@ -88,22 +88,37 @@
     var st = null; try { st = sessionStorage.getItem('bo_mock_status_' + t); } catch (e) {}
     var forced = qs.get('state');
     q.status = forced && /^(pending|approved|declined)$/.test(forced) ? forced : (st || q.status);
-    return Promise.resolve(forced === 'expired' ? { ok: false } : q);
+    // mock the Load responses from quotes.md: 404 not_found_or_expired, or a network/5xx failure
+    if (forced === 'expired') return Promise.resolve({ s: 404, j: { ok: false, error: 'not_found_or_expired' } });
+    if (forced === 'error') return Promise.resolve({ s: 0, j: { ok: false, error: 'network' } });
+    if (forced === 'past') q.expires_at = new Date(Date.now() - 60000).toISOString();
+    return Promise.resolve({ s: 200, j: q });
   }
   function load(t) {
     if (MOCK) return mockQuote(t);
     var u = CFG.QUOTE_LOAD_URL + (CFG.QUOTE_LOAD_URL.indexOf('?') === -1 ? '?' : '&') + 'token=' + encodeURIComponent(t);
-    return fetch(u, { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return { ok: false, error: 'network' }; });
+    return fetch(u, { cache: 'no-store' })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { s: r.status, j: j }; }); })
+      .catch(function () { return { s: 0, j: { ok: false, error: 'network' } }; });
   }
-  function decide(action) {
+  function decide(action, reason) {
+    var body = { token: Q.token, action: action };
+    if (action === 'decline_reason') body.reason = String(reason || '').slice(0, 500);
     if (CFG.QUOTE_LIVE !== true || !CFG.QUOTE_DECIDE_URL) {
-      try { console.info('[BO quote] QUOTE_LIVE=false, not sent:', { token: Q.token, action: action }); } catch (e) {}
-      var status = action === 'approve' ? 'approved' : 'declined';
+      try { console.info('[BO quote] QUOTE_LIVE=false, not sent:', body); } catch (e) {}
+      window.__boLastDecide = body;
+      var f = qs.get('decide');  // mock Decide errors from quotes.md: ?decide=410|404|400|500
+      if (f) return new Promise(function (res) { setTimeout(function () { res({ s: +f, j: { ok: false, error: { '410': 'expired', '404': 'not_found', '400': 'bad_action' }[f] || 'upstream' } }); }, 600); });
+      var prev = null; try { prev = sessionStorage.getItem('bo_mock_status_' + Q.token); } catch (e) {}
+      var status = prev || (action === 'approve' ? 'approved' : 'declined');
       try { sessionStorage.setItem('bo_mock_status_' + Q.token, status); } catch (e) {}
-      return new Promise(function (res) { setTimeout(function () { res({ s: 200, j: { ok: true, action: action, status: status, mock: true } }); }, 600); });
+      var j = { ok: true, action: action, status: status, mock: true }; if (prev) j.repeat = true;
+      return new Promise(function (res) { setTimeout(function () { res({ s: 200, j: j }); }, 600); });
     }
-    return fetch(CFG.QUOTE_DECIDE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: Q.token, action: action }) })
-      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { s: r.status, j: j }; }); });
+    // text/plain = a "simple" CORS request (no OPTIONS preflight); Make still parses the JSON body (quotes.md)
+    return fetch(CFG.QUOTE_DECIDE_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { s: r.status, j: j }; }); })
+      .catch(function () { return { s: 0, j: { ok: false, error: 'network' } }; });
   }
   function act(action) {
     if (busy) return; busy = true;
@@ -111,7 +126,8 @@
     decide(action).then(function (x) {
       busy = false;
       if (x.j && x.j.ok) return foot(x.j.status || (action === 'approve' ? 'approved' : 'declined'), '');
-      if (x.s === 404 || x.s === 410) return expired();
+      var e = x.j && x.j.error;
+      if (x.s === 404 || x.s === 410 || e === 'not_found' || e === 'expired' || e === 'not_found_or_expired') return expired();
       throw new Error('decide');
     }).catch(function () { busy = false; if (a) a.disabled = false; if (d) d.disabled = false; foot('pending', L.err); });
   }
@@ -120,6 +136,13 @@
   setLang(qs.get('lang') === 'es' ? 'es' : 'en');
   if (!t) return expired();
   $('q-body').innerHTML = '<p class="q-loading">' + esc(L.loading) + '</p>';
-  load(t).then(function (q) { if (!q || !q.ok) return expired(); q.token = q.token || t; show(q); })
-    .catch(function () { foot('pending', L.err); });
+  function loadFailed() { $('q-body').innerHTML = ''; $('q-btns').innerHTML = ''; foot('pending', L.err); }
+  load(t).then(function (x) {
+    var q = x && x.j;
+    // 404 {ok:false,error:'not_found_or_expired'} = expired/unknown; anything else that isn't ok = temporary error
+    if (x && (x.s === 404 || x.s === 410 || (q && q.error === 'not_found_or_expired'))) return expired();
+    if (!q || !q.ok) return loadFailed();
+    if (q.expires_at && !isNaN(Date.parse(q.expires_at)) && Date.parse(q.expires_at) < Date.now()) return expired();
+    q.token = q.token || t; show(q);
+  }).catch(loadFailed);
 })();

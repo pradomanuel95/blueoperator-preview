@@ -86,7 +86,7 @@
   function quoteStatus(ref) {
     if (CFG.QUOTE_LIVE !== true || !CFG.QUOTE_STATUS_URL) return Promise.resolve(null);
     return fetch(CFG.QUOTE_STATUS_URL + (CFG.QUOTE_STATUS_URL.indexOf('?') === -1 ? '?' : '&') + 'ref=' + encodeURIComponent(ref), { cache: 'no-store' })
-      .then(function (r) { return r.json(); }).catch(function () { return null; });
+      .then(function (r) { return r.json().catch(function () { return null; }); }).catch(function () { return null; });
   }
 
   // ---------- shared UI ----------
@@ -276,9 +276,11 @@
       if (Date.now() - start > (CFG.MAX_WAIT_MS || 45000)) return done(H(L.thanks(first)) + P(esc(L.onItsWay)) + P(L.phoneLine, 'bo-result-small'));
       setTimeout(function () {
         quoteStatus(ref).then(function (s) {
-          if (s && s.ok && s.state === 'ready' && /^[A-Za-z0-9]{16,40}$/.test(s.token || '')) return go(s.token, false);
+          if (s && s.ok && s.state === 'ready' && /^[A-Za-z0-9_-]{16,40}$/.test(s.token || '')) return go(s.token, false);
           if (s && s.ok && /^(no_price|failed)$/.test(s.state || '')) return done(H(L.thanks(first)) + P(esc(L.gotInfo)) + P(L.phoneLine, 'bo-result-small'));
-          poll();
+          if (s && s.ok && s.state === 'out_of_area') return done(H(L.thanks(first)) + P(esc(L.outArea)) + P('<a href="' + ROOT + 'cleaners/"><strong>' + esc(L.cleanersLink) + '</strong></a>') + P(L.phoneLine, 'bo-result-small'));
+          if (s && s.ok === false && s.error === 'bad_ref') return done(H(L.thanks(first)) + P(esc(L.onItsWay)) + P(L.phoneLine, 'bo-result-small'));
+          poll();  // 200 {ok:true,state:'pending'} (or a network blip): keep polling until MAX_WAIT_MS
         });
       }, CFG.POLL_MS || 2000);
     })();
