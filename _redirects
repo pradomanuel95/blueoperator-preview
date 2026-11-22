@@ -1,0 +1,4 @@
+# Cloudflare Pages rules (GitHub Pages just serves this as a plain file; there 404.html handles /quote/<token>).
+# Text links are /quote/<token>: serve the quote page with a 200, quote.js reads the token from the path.
+/quote/:token/  /quote/:token  301
+/quote/:token   /quote/        200

@@ -1,0 +1,3 @@
+# Cloudflare Pages: keep the whole test site out of search engines (pages also carry meta noindex; robots.txt is Disallow: /).
+/*
+  X-Robots-Tag: noindex, nofollow
