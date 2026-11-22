@@ -11,15 +11,13 @@
       ok: 'Thanks! Your quote is approved. We will contact you shortly to schedule your first visit.',
       no: 'Got it, you declined this quote.', err: 'Something went wrong. Please try again or call us.',
       exp: 'This quote has expired.', expQ: 'Call or text', loading: 'Loading your quote…',
-      startup: '$70 off your weekly service after the startup',
-      aiperH: 'Your bonus: Aiper EcoSurfer P1', aiper: '50% off, $194.97 (was $389.97), when you enroll in weekly pool service.' },
+      startup: '$70 off your weekly service after the startup' },
     es: { hi: function (f) { return 'Hola ' + f + ', aquí está su cotización de servicio semanal de piscina'; }, approve: 'Aprobar cotización', decline: 'Rechazar',
       q: '¿Preguntas? Llame o envíe un texto al', after: 'después de', off: 'de descuento', valid: 'Válida por 30 días',
       ok: '¡Gracias! Su cotización está aprobada. Le contactaremos en breve para programar su primera visita.',
       no: 'Entendido, rechazó esta cotización.', err: 'Algo salió mal. Intente de nuevo o llámenos.',
       exp: 'Esta cotización ha vencido.', expQ: 'Llame o envíe un texto al', loading: 'Cargando su cotización…',
-      startup: '$70 de descuento en su servicio semanal después del arranque',
-      aiperH: 'Su bono: Aiper EcoSurfer P1', aiper: '50% de descuento, $194.97 (antes $389.97), al inscribirse en el servicio semanal de piscina.' }
+      startup: '$70 de descuento en su servicio semanal después del arranque' }
   };
   var PHONE = '<a class="q-phone" href="tel:+13059254491">(305)&nbsp;925-4491</a>';
   var BOLD = /exclusive|exclusivos|detailed service report|informe detallado|reporte detallado/i;
@@ -54,7 +52,6 @@
     var promo = String(q.promo || '').toUpperCase();
     if (promo === 'STARTUP' || promo === 'ARRANQUE') s += '<p class="q-band">' + esc(L.startup) + '</p>';
     else if (q.first_month) s += '<p class="q-band">' + esc(w.first_month_label) + ' <strong>' + esc(q.first_month) + '</strong> ' + esc(L.after) + ' ' + esc(q.discount || '$30') + ' ' + esc(L.off) + '</p>';
-    if (q.kind === 'aiper') s += '<div class="q-bonus"><p class="q-bonus-h">' + esc(L.aiperH) + '</p><p>' + esc(L.aiper) + '</p></div>';
     return s;
   }
   function foot(status, err) {
@@ -83,6 +80,7 @@
     try { q = JSON.parse(sessionStorage.getItem('bo_mock_q_' + t) || 'null'); } catch (e) {}
     q = q || { ok: true, token: t, kind: qs.get('kind') === 'aiper' ? 'aiper' : 'postcard', status: 'pending', language: qs.get('lang') === 'es' ? 'es' : 'en',
       first: 'Truck', price: '$140', first_month: '$70', discount: '$70', promo: (qs.get('promo') || 'POSTCARD').toUpperCase() };
+    // Aiper-kind quotes render like a normal weekly quote: no first-month band, no cleaner offer (Aiper 50%-off offer discontinued, Manuel Nov 22)
     if (q.promo === 'NEXTDOOR' || q.kind === 'aiper') { q.first_month = ''; q.discount = ''; }
     if (q.promo === 'NEIGHBOR' || q.promo === 'VECINO') { q.first_month = '$' + (parseInt(q.price.slice(1), 10) - 30); q.discount = '$30'; }
     var st = null; try { st = sessionStorage.getItem('bo_mock_status_' + t); } catch (e) {}

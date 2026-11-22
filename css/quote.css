@@ -17,9 +17,6 @@
 .q-price-num span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
 .q-valid, .q-brand { color: var(--muted); font-size: 0.92rem; margin: 0 0 2px; }
 .q-band { display: inline-block; background: #fff4cc; color: var(--ink); border-radius: 8px; padding: 6px 10px; margin: 12px 0 0; font-size: 1rem; }
-.q-bonus { background: var(--sky); border-radius: 14px; padding: 12px 14px; margin-top: 14px; }
-.q-bonus p { margin: 0; color: var(--ink); line-height: 1.5; }
-.q-bonus .q-bonus-h { font-weight: 800; color: var(--navy); }
 .q-btns { display: grid; gap: 10px; margin-top: 20px; }
 .q-btns:empty { display: none; }
 .q-btns .btn { width: 100%; min-height: 54px; font-size: 1.08rem; }

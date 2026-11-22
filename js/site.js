@@ -163,7 +163,7 @@
   if (!document.querySelector("form.estimate")) return;
   var me = document.querySelector('script[src*="js/site.js"]');
   var base = me ? me.src.replace(/js\/site\.js.*$/, "") : "";
-  var V = "1811221340";
+  var V = "1811221400";
   function add(src, cb) { var s = document.createElement("script"); s.src = base + src + "?v=" + V; s.onload = cb || null; document.head.appendChild(s); }
   add("js/bo-config.js", function () { add("js/bo-quote.js", function () { add("js/forms.js"); }); });
 })();
