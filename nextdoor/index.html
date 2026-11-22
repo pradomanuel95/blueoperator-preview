@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css?v=1795295011">
-  <link rel="stylesheet" href="../css/campaign.css?v=1795289358">
+  <link rel="stylesheet" href="../css/site.css?v=1811221300">
+  <link rel="stylesheet" href="../css/campaign.css?v=1811221300">
   <script>document.documentElement.classList.add("js");</script>
 
 </head>
@@ -81,6 +81,9 @@
           <div class="cp-row cp-row-addr"><label>Service address <span aria-hidden="true">*</span><input name="Service address" type="text" autocomplete="street-address" required></label><label>Zip code <span aria-hidden="true">*</span><input name="Zip code" type="text" autocomplete="postal-code" required></label></div>
           <p class="cp-know">Know your pool size? See your price right away.</p>
           <fieldset><legend>Do you know your pool size? <span aria-hidden="true">*</span></legend><label class="check"><input type="radio" name="Pool size" value="I know the gallons" required> I know the gallons</label><label class="check"><input type="radio" name="Pool size" value="I know the measurements" required> I know the measurements</label><label class="check"><input type="radio" name="Pool size" value="I don&#x27;t know" required> I don't know</label></fieldset>
+          <div class="cp-size" data-size="gallons" hidden><div class="cp-row cp-row-1"><label>Pool size (gallons) <span aria-hidden="true">*</span><input name="pool_gallons" type="text" inputmode="decimal" autocomplete="off" disabled></label></div></div>
+          <div class="cp-size" data-size="measurements" hidden><div class="cp-row"><label>Length (ft) <span aria-hidden="true">*</span><input name="pool_length_ft" type="text" inputmode="decimal" autocomplete="off" disabled></label><label>Width (ft) <span aria-hidden="true">*</span><input name="pool_width_ft" type="text" inputmode="decimal" autocomplete="off" disabled></label></div><div class="cp-row"><label>Shallow end depth (ft) <span aria-hidden="true">*</span><input name="pool_shallow_depth_ft" type="text" inputmode="decimal" autocomplete="off" disabled></label><label>Deep end depth (ft) <span aria-hidden="true">*</span><input name="pool_deep_depth_ft" type="text" inputmode="decimal" autocomplete="off" disabled></label></div></div>
+          <p class="cp-size cp-size-note" data-size="unknown" hidden>No problem. A team member will check your pool on Google Maps and get back to you soon.</p>
           <p class="step-nav"><button class="btn btn-yellow" type="submit">Get My Free Quote</button></p>
         </div>
       </form>
@@ -145,7 +148,7 @@
   </div>
   <p class="copyright">© 2026 by Blue Operator Inc.</p>
 </footer>
-<script src="../js/site.js?v=1795295011" defer></script>
+<script src="../js/site.js?v=1811221300" defer></script>
 
 </div>
 </body>

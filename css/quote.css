@@ -1,0 +1,37 @@
+/* /quote/ page: BlueProtect quote card (mirrors the live Wix quote-page card) */
+.page-quote main { background: var(--mist); }
+.q-wrap { padding: 28px 14px 56px; }
+.q-card { max-width: 600px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--yellow); border-radius: 22px; box-shadow: var(--shadow); padding: 26px 26px 24px; }
+.q-logo { display: block; width: 340px; max-width: 88%; height: auto; margin: 0 auto; }
+.q-rule { height: 1px; background: var(--line); margin: 18px 0 18px; }
+.q-hi { font-family: var(--serif); color: var(--navy); font-size: 1.55rem; line-height: 1.25; margin: 0 0 14px; text-align: left; }
+.q-inc { font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 0 0 6px; }
+.q-inc strong { font-weight: 800; }
+.q-sec { font-size: 1.06rem; color: var(--ink); margin: 16px 0 6px; }
+.q-list { margin: 0; padding-left: 1.25em; }
+.q-list li { color: var(--ink); line-height: 1.55; margin: 0 0 4px; }
+.q-note { color: var(--muted); font-size: 0.93rem; margin: 14px 0 0; }
+.q-price { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 16px; }
+.q-price-label { font-weight: 800; color: var(--ink); font-size: 1.15rem; margin: 0; }
+.q-price-num { font-family: var(--serif); font-weight: 800; color: var(--blue-deep); font-size: 2rem; margin: 2px 0 4px; }
+.q-price-num span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+.q-valid, .q-brand { color: var(--muted); font-size: 0.92rem; margin: 0 0 2px; }
+.q-band { display: inline-block; background: #fff4cc; color: var(--ink); border-radius: 8px; padding: 6px 10px; margin: 12px 0 0; font-size: 1rem; }
+.q-bonus { background: var(--sky); border-radius: 14px; padding: 12px 14px; margin-top: 14px; }
+.q-bonus p { margin: 0; color: var(--ink); line-height: 1.5; }
+.q-bonus .q-bonus-h { font-weight: 800; color: var(--navy); }
+.q-btns { display: grid; gap: 10px; margin-top: 20px; }
+.q-btns:empty { display: none; }
+.q-btns .btn { width: 100%; min-height: 54px; font-size: 1.08rem; }
+.q-decline { background: #eef2f6; color: #3d4b58; border: 0; min-height: 46px !important; font-size: 1rem !important; }
+.q-decline:hover { background: #e2e8ee; }
+.q-foot { text-align: center; margin-top: 16px; }
+.q-done { font-weight: 800; font-size: 1.08rem; color: var(--ink); margin: 6px 0 12px; line-height: 1.5; }
+.q-done.q-ok { color: #1b6e35; }
+.q-err { color: #a8261b; font-weight: 600; margin: 0 0 10px; }
+.q-q { color: var(--muted); font-size: 0.95rem; margin: 0; }
+.q-phone { color: var(--blue-deep); font-weight: 800; }
+.q-expq { font-size: 1.1rem; }
+.q-loading { color: var(--muted); text-align: center; }
+@media (max-width: 600px) { .q-card { padding: 20px 16px 20px; border-radius: 18px; } .q-hi { font-size: 1.35rem; } }
+.q-wrap{min-height:calc(100vh - 190px);min-height:calc(100svh - 190px)}

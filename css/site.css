@@ -1802,3 +1802,20 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 .cl-finnote a { color: var(--blue-deep); font-weight: 800; text-underline-offset: 3px; }
 .cl-finance { background: var(--mist); }
 .page-cleaners .cl-detail + .cl-finance { padding-top: 48px; }
+
+/* ---- lead forms (forms.js): honeypot, messages, result box ---- */
+.bo-hp { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
+.bo-form-msg { margin: 10px 0 0; color: #a8261b; font-weight: 600; line-height: 1.5; }
+.bo-form-msg:empty { display: none; }
+.bo-form-msg a { color: var(--blue-deep); }
+.bo-result { margin: 0 auto; text-align: center; padding: 30px 22px 26px; }
+.bo-result[hidden] { display: none; }
+.bo-result .bo-result-h { text-align: center; color: var(--navy); font-size: 1.6rem; margin: 6px 0 12px; }
+.bo-result p { color: var(--ink); font-size: 1.05rem; line-height: 1.55; margin: 0 0 12px; }
+.bo-result p.bo-result-small { font-size: 0.98rem; color: var(--muted); margin-top: 16px; }
+.bo-result a { color: var(--blue-deep); }
+.bo-result a.btn { color: var(--ink); }
+.bo-spinner { width: 38px; height: 38px; margin: 2px auto 10px; border-radius: 50%; border: 4px solid var(--sky); border-top-color: var(--yellow); animation: bo-spin 0.9s linear infinite; }
+@keyframes bo-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .bo-spinner { animation: none; } }
+.bo-dots { display: inline-block; min-width: 1.2em; text-align: left; }
