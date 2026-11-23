@@ -1819,3 +1819,27 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 @keyframes bo-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .bo-spinner { animation: none; } }
 .bo-dots { display: inline-block; min-width: 1.2em; text-align: left; }
+
+/* ---- Weekly visit video (home + services) ---- */
+.bo-video { background: #fff; padding: 24px 0 64px; }
+.bo-video-alt { background: var(--mist); padding: 64px 0; }
+.bo-video h2 { text-align: center; font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.8rem); margin: 0 0 12px; }
+.bo-video-sub { text-align: center; color: var(--muted); line-height: 1.6; max-width: 640px; margin: 0 auto 24px; }
+.bo-video-frame { position: relative; margin: 0 auto; max-width: 960px; border-radius: 20px; overflow: hidden; background: #000; box-shadow: var(--shadow); }
+.bo-video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
+.bo-video-play { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border: 0; border-radius: 50%; background: var(--yellow); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28); cursor: pointer; }
+.bo-video-play::before { content: ""; position: absolute; left: 30px; top: 23px; border-style: solid; border-width: 15px 0 15px 24px; border-color: transparent transparent transparent var(--navy); }
+.bo-video-play:hover { background: var(--yellow-deep); }
+.bo-video-frame.is-playing .bo-video-play { display: none; }
+.bo-video-link { text-align: center; margin: 20px 0 0; font-weight: 700; }
+.bo-video-link a { color: var(--navy); text-underline-offset: 3px; }
+@media (max-width: 640px) {
+  .bo-video-frame { border-radius: 16px; }
+  .bo-video-frame video { aspect-ratio: 912 / 720; }
+  .bo-video-play { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+  .bo-video-play::before { left: 25px; top: 19px; border-width: 13px 0 13px 20px; }
+}
+@media (min-width: 900px) {
+  .bo-video { padding: 8px 0 96px; }
+  .bo-video-alt { padding: 96px 0; }
+}

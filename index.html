@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=1811221400">
+  <link rel="stylesheet" href="css/site.css?v=1811231600">
   <script>document.documentElement.classList.add("js");</script>
   
   <script type="application/ld+json">
@@ -292,6 +292,22 @@
       <p class="cta-line"><a class="btn btn-yellow" href="https://www.blueoperatorpool.com/contact">GET A FREE ESTIMATE</a></p>
 
     </div>
+  </section>
+
+  <section class="bo-video bo-video-alt" aria-labelledby="video-title" data-reveal>
+    <div class="wrap">
+      <h2 id="video-title">See a weekly visit, start to finish</h2>
+      <p class="bo-video-sub">Here's what happens at your pool every week, from the equipment check to brushing the walls, plus the photos we send you after each visit.</p>
+      <figure class="bo-video-frame">
+        <video controls playsinline muted preload="none" width="1280" height="720" poster="assets/video/weekly-visit-poster.jpg" data-poster-mobile="assets/video/weekly-visit-poster-mobile.jpg" aria-label="Video: Manny from Blue Operator walks through a weekly pool service visit">
+          <source src="assets/video/weekly-visit-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
+          <source src="assets/video/weekly-visit-1280.mp4" type="video/mp4">
+        </video>
+        <button class="bo-video-play" type="button" aria-label="Play the weekly visit video"></button>
+      </figure>
+      <p class="bo-video-link"><a href="services/">Compare our weekly plans</a></p>
+    </div>
+    <script>(function(){var f=document.currentScript.parentNode.querySelector(".bo-video-frame"),v=f.querySelector("video"),b=f.querySelector(".bo-video-play");if(window.matchMedia&&matchMedia("(max-width: 640px)").matches)v.poster=v.getAttribute("data-poster-mobile");b.addEventListener("click",function(){var p=v.play();if(p&&p.catch)p.catch(function(){});});v.addEventListener("play",function(){f.classList.add("is-playing");});})();</script>
   </section>
 
   <section class="story" id="our-story" aria-labelledby="story-title" data-reveal>
