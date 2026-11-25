@@ -1871,6 +1871,23 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 .recent-work-caption { margin: 14px 0 0; }
 .recent-work-caption p { margin: 0; font-weight: 700; color: var(--navy); font-size: 1rem; }
 .recent-work-note { margin: 6px 0 0; font-weight: 400; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+.recent-work-caption .recent-work-specs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 8px 0 0;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.recent-work-specs span:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.45em;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
 .ba-slider {
   --pos: 50%;
   position: relative;

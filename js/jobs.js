@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811251318";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811251355";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -7,6 +7,7 @@
       neighborhood: "Kendall",
       service: "Green-to-clean recovery",
       note: "The water had turned green. We brushed, balanced and filtered it back to clear.",
+      specs: ["Saltwater", "About 15,000 gallons", "Cartridge filter"],
       before: "green-pool-before-kendall.webp",
       after: "green-to-clean-after-kendall.webp",
       altBefore: "Green rectangular pool in Kendall before recovery, with cloudy green water and a mosaic tile sun shelf.",
@@ -19,6 +20,7 @@
       neighborhood: "Miami-Dade",
       service: "Green-to-clean recovery",
       note: "This one was green when we got the call. Now it's ready to swim.",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter", "Spa"],
       before: "green-pool-before-miami-dade.webp",
       after: "green-to-clean-after-miami-dade.webp",
       altBefore: "Green kidney-shaped pool with a spa, pink deck, and shed in Miami-Dade, before recovery.",
@@ -138,6 +140,12 @@
     var note = job.note
       ? '<p class="recent-work-note">' + escapeHtml(job.note) + "</p>"
       : "";
+    var specs = "";
+    if (job.specs && job.specs.length) {
+      specs = '<p class="recent-work-specs">' +
+        job.specs.map(function (s) { return "<span>" + escapeHtml(s) + "</span>"; }).join("") +
+        "</p>";
+    }
     var aria = "Before and after comparison: " + label;
 
     return (
@@ -158,6 +166,7 @@
         '<figcaption class="recent-work-caption">' +
           "<p>" + escapeHtml(label) + "</p>" +
           note +
+          specs +
         "</figcaption>" +
       "</figure>"
     );
