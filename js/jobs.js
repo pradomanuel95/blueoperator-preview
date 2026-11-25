@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811251318";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -18,6 +18,7 @@
       id: "miami-dade-green-to-clean",
       neighborhood: "Miami-Dade",
       service: "Green-to-clean recovery",
+      note: "This one was green when we got the call. Now it's ready to swim.",
       before: "green-pool-before-miami-dade.webp",
       after: "green-to-clean-after-miami-dade.webp",
       altBefore: "Green kidney-shaped pool with a spa, pink deck, and shed in Miami-Dade, before recovery.",

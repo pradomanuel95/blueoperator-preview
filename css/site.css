@@ -650,7 +650,7 @@ h3 { line-height: 1.25; }
 .financing { text-align: center; margin: 20px 0 0; font-weight: 800; }
 .financing a { color: var(--navy); }
 
-.why { background: #fff; }
+.why { background: var(--mist); }
 .why-grid { display: grid; gap: 14px; }
 .why-grid article {
   background: #fff;
@@ -1822,7 +1822,7 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 
 /* ---- Weekly visit video (home + services) ---- */
 .bo-video { background: #fff; padding: 24px 0 8px; }
-.bo-video-alt { background: var(--mist); padding: 64px 0; }
+.bo-video-alt { background: #fff; padding: 64px 0; }
 .bo-video h2 { text-align: center; font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.8rem); margin: 0 0 12px; }
 .bo-video-sub { text-align: center; color: var(--muted); line-height: 1.6; max-width: 640px; margin: 0 auto 24px; text-wrap: pretty; }
 .bo-video-frame { position: relative; margin: 0 auto; max-width: 960px; border-radius: 20px; overflow: hidden; background: #000; box-shadow: var(--shadow); }
@@ -1844,7 +1844,7 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   .bo-video-alt { padding: 96px 0; }
 }
 
-.recent-work { background: #fff; padding: 64px 0; }
+.recent-work { background: var(--mist); padding: 64px 0; }
 #recent-work { scroll-margin-top: 96px; }
 .recent-work h2 {
   text-align: center;

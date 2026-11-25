@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=1811251305">
+  <link rel="stylesheet" href="css/site.css?v=1811251318">
   <script>document.documentElement.classList.add("js");</script>
   
   <script type="application/ld+json">
@@ -142,15 +142,15 @@
     </div>
   </section>
 
-  <section class="act-now" aria-labelledby="act-title" data-reveal>
-    <div class="wrap act-grid">
-      <h2 class="act-title" id="act-title">Waiting makes the recovery harder and more expensive.</h2>
-      <div class="act-copy">
-        <h3>Act Now</h3>
-        <p>A pool that drifts for weeks often needs heavier treatment, risks surface damage, and can stress filters and equipment. Consistent weekly service stops that cycle before it starts.</p>
-      </div>
-      <div class="act-cta"><p class="cta-line"><a class="btn btn-yellow" href="contact/">GET A FREE ESTIMATE</a></p>
-</div>
+  <section class="stats" aria-labelledby="stats-title" data-reveal>
+    <div class="wrap">
+      <h2 id="stats-title">EXPERIENCE YOU CAN TRUST</h2>
+      <dl class="stat-grid">
+        <div><dt>500+</dt><dd>Happy Clients</dd></div>
+        <div><dt>5 ★</dt><dd>Average Rating</dd></div>
+        <div><dt>9+</dt><dd>Years Experience</dd></div>
+        <div><dt>31</dt><dd>Zip Codes Serviced</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -193,15 +193,23 @@
     </div>
   </section>
 
-  <section class="stats" aria-labelledby="stats-title" data-reveal>
+  <section class="act-now" aria-labelledby="act-title" data-reveal>
+    <div class="wrap act-grid">
+      <h2 class="act-title" id="act-title">Waiting makes the recovery harder and more expensive.</h2>
+      <div class="act-copy">
+        <h3>Act Now</h3>
+        <p>A pool that drifts for weeks often needs heavier treatment, risks surface damage, and can stress filters and equipment. Consistent weekly service stops that cycle before it starts.</p>
+      </div>
+      <div class="act-cta"><p class="cta-line"><a class="btn btn-yellow" href="contact/">GET A FREE ESTIMATE</a></p>
+</div>
+    </div>
+  </section>
+
+  <section class="recent-work" id="recent-work" aria-labelledby="recent-work-title" data-reveal>
     <div class="wrap">
-      <h2 id="stats-title">EXPERIENCE YOU CAN TRUST</h2>
-      <dl class="stat-grid">
-        <div><dt>500+</dt><dd>Happy Clients</dd></div>
-        <div><dt>5 ★</dt><dd>Average Rating</dd></div>
-        <div><dt>9+</dt><dd>Years Experience</dd></div>
-        <div><dt>31</dt><dd>Zip Codes Serviced</dd></div>
-      </dl>
+      <h2 id="recent-work-title">Recent work</h2>
+      <p class="recent-work-sub">Green pools we brought back to clear.</p>
+      <div class="recent-work-grid" id="recent-work-grid"></div>
     </div>
   </section>
 
@@ -269,6 +277,22 @@
     </div>
   </section>
 
+  <section class="bo-video bo-video-alt" aria-labelledby="video-title" data-reveal>
+    <div class="wrap">
+      <h2 id="video-title">See a weekly visit, start to finish</h2>
+      <p class="bo-video-sub">Here's what happens at your pool every week, from the equipment check to brushing the walls, plus the photos we send you after each visit.</p>
+      <figure class="bo-video-frame">
+        <video controls playsinline preload="none" width="1280" height="720" poster="assets/video/weekly-visit-poster.jpg" data-poster-mobile="assets/video/weekly-visit-poster-mobile.jpg" aria-label="Video: Manny from Blue Operator walks through a weekly pool service visit">
+          <source src="assets/video/weekly-visit-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
+          <source src="assets/video/weekly-visit-1280.mp4" type="video/mp4">
+        </video>
+        <button class="bo-video-play" type="button" aria-label="Play the weekly visit video"></button>
+      </figure>
+      <p class="bo-video-link"><a href="services/">Compare our weekly plans</a></p>
+    </div>
+    <script>(function(){var f=document.currentScript.parentNode.querySelector(".bo-video-frame"),v=f.querySelector("video"),b=f.querySelector(".bo-video-play");if(window.matchMedia&&matchMedia("(max-width: 640px)").matches)v.poster=v.getAttribute("data-poster-mobile");b.addEventListener("click",function(){v.muted=false;var p=v.play();if(p&&p.catch)p.catch(function(){});});v.addEventListener("play",function(){f.classList.add("is-playing");});})();</script>
+  </section>
+
   <section class="why" aria-labelledby="why-title" data-reveal>
     <div class="wrap">
       <h2 id="why-title">Why Switch to Blue Operator Pool Service?</h2>
@@ -291,30 +315,6 @@
       </div>
       <p class="cta-line"><a class="btn btn-yellow" href="contact/">GET A FREE ESTIMATE</a></p>
 
-    </div>
-  </section>
-
-  <section class="bo-video bo-video-alt" aria-labelledby="video-title" data-reveal>
-    <div class="wrap">
-      <h2 id="video-title">See a weekly visit, start to finish</h2>
-      <p class="bo-video-sub">Here's what happens at your pool every week, from the equipment check to brushing the walls, plus the photos we send you after each visit.</p>
-      <figure class="bo-video-frame">
-        <video controls playsinline preload="none" width="1280" height="720" poster="assets/video/weekly-visit-poster.jpg" data-poster-mobile="assets/video/weekly-visit-poster-mobile.jpg" aria-label="Video: Manny from Blue Operator walks through a weekly pool service visit">
-          <source src="assets/video/weekly-visit-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
-          <source src="assets/video/weekly-visit-1280.mp4" type="video/mp4">
-        </video>
-        <button class="bo-video-play" type="button" aria-label="Play the weekly visit video"></button>
-      </figure>
-      <p class="bo-video-link"><a href="services/">Compare our weekly plans</a></p>
-    </div>
-    <script>(function(){var f=document.currentScript.parentNode.querySelector(".bo-video-frame"),v=f.querySelector("video"),b=f.querySelector(".bo-video-play");if(window.matchMedia&&matchMedia("(max-width: 640px)").matches)v.poster=v.getAttribute("data-poster-mobile");b.addEventListener("click",function(){v.muted=false;var p=v.play();if(p&&p.catch)p.catch(function(){});});v.addEventListener("play",function(){f.classList.add("is-playing");});})();</script>
-  </section>
-
-  <section class="recent-work" id="recent-work" aria-labelledby="recent-work-title" data-reveal>
-    <div class="wrap">
-      <h2 id="recent-work-title">Recent work</h2>
-      <p class="recent-work-sub">Green pools we brought back to clear.</p>
-      <div class="recent-work-grid" id="recent-work-grid"></div>
     </div>
   </section>
 
@@ -587,7 +587,7 @@
   <p class="copyright">© 2026 by Blue Operator Inc.</p>
 </footer>
 <script src="js/site.js?v=1811221400" defer></script>
-<script src="js/jobs.js?v=1811251305" defer></script>
+<script src="js/jobs.js?v=1811251318" defer></script>
 
 </div>
 </body>
