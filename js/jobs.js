@@ -44,50 +44,80 @@
 
   function initSlider(slider) {
     var dragging = false;
+    var pending = null;
+    var moveOpts = { passive: false };
+
+    function point(e) {
+      if (e.touches && e.touches.length) return e.touches[0];
+      return e;
+    }
 
     function pctFromEvent(e) {
-      var point = e.touches && e.touches.length ? e.touches[0] : e;
+      var pt = point(e);
       var rect = slider.getBoundingClientRect();
       if (!rect.width) return 50;
-      return ((point.clientX - rect.left) / rect.width) * 100;
+      return ((pt.clientX - rect.left) / rect.width) * 100;
+    }
+
+    function isHandleEvent(e) {
+      var t = e.target;
+      return !!(t && t.closest && t.closest(".ba-handle"));
+    }
+
+    function unbind() {
+      window.removeEventListener("pointermove", onMove, moveOpts);
+      window.removeEventListener("pointerup", stop);
+      window.removeEventListener("pointercancel", stop);
+    }
+
+    function stop() {
+      dragging = false;
+      pending = null;
+      slider.classList.remove("is-dragging");
+      unbind();
     }
 
     function onMove(e) {
+      var pt = point(e);
+      if (pending && !dragging) {
+        var dx = pt.clientX - pending.startX;
+        var dy = pt.clientY - pending.startY;
+        var ax = Math.abs(dx);
+        var ay = Math.abs(dy);
+        if (ax < 8 && ay < 8) return;
+        if (ax > ay && ax > 8) {
+          dragging = true;
+          pending = null;
+          slider.classList.add("is-dragging");
+          try { slider.setPointerCapture(e.pointerId); } catch (err) {}
+        } else {
+          stop();
+          return;
+        }
+      }
       if (!dragging) return;
       if (e.cancelable) e.preventDefault();
       setPos(slider, pctFromEvent(e));
     }
 
-    function stop() {
-      dragging = false;
-      slider.classList.remove("is-dragging");
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", stop);
-      window.removeEventListener("pointercancel", stop);
-      window.removeEventListener("touchmove", onMove);
-      window.removeEventListener("touchend", stop);
-      window.removeEventListener("touchcancel", stop);
-    }
-
     slider.addEventListener("pointerdown", function (e) {
       if (e.button != null && e.button !== 0) return;
-      dragging = true;
-      slider.classList.add("is-dragging");
-      try { slider.setPointerCapture(e.pointerId); } catch (err) {}
-      setPos(slider, pctFromEvent(e));
-      window.addEventListener("pointermove", onMove);
+      var fromHandle = isHandleEvent(e);
+      var isTouch = e.pointerType === "touch";
+      if (fromHandle || !isTouch) {
+        dragging = true;
+        pending = null;
+        slider.classList.add("is-dragging");
+        try { slider.setPointerCapture(e.pointerId); } catch (err) {}
+        setPos(slider, pctFromEvent(e));
+      } else {
+        dragging = false;
+        pending = { startX: e.clientX, startY: e.clientY };
+      }
+      window.addEventListener("pointermove", onMove, moveOpts);
       window.addEventListener("pointerup", stop);
       window.addEventListener("pointercancel", stop);
     });
-
-    slider.addEventListener("touchstart", function (e) {
-      dragging = true;
-      slider.classList.add("is-dragging");
-      setPos(slider, pctFromEvent(e));
-      window.addEventListener("touchmove", onMove, { passive: false });
-      window.addEventListener("touchend", stop);
-      window.addEventListener("touchcancel", stop);
-    }, { passive: true });
 
     slider.addEventListener("keydown", function (e) {
       var cur = parseFloat(getComputedStyle(slider).getPropertyValue("--pos")) || 50;
@@ -113,9 +143,7 @@
       '<figure class="recent-work-job">' +
         '<div class="ba-slider" style="--pos:50%;--ba-w:' + w + ";--ba-h:" + h + ';" role="slider" tabindex="0" aria-label="' + escapeHtml(aria) + '" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50 percent before">' +
           '<img class="ba-after" src="' + escapeHtml(after) + '" alt="' + escapeHtml(job.altAfter || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
-          '<div class="ba-before-wrap">' +
-            '<img class="ba-before" src="' + escapeHtml(before) + '" alt="' + escapeHtml(job.altBefore || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
-          "</div>" +
+          '<img class="ba-before" src="' + escapeHtml(before) + '" alt="' + escapeHtml(job.altBefore || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
           '<div class="ba-handle" aria-hidden="true">' +
             '<span class="ba-line"></span>' +
             '<span class="ba-knob">' +
