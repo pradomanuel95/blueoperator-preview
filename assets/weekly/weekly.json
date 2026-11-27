@@ -10,6 +10,7 @@
         "Sand filter",
         "Spa"
       ],
+      "pump": "Single-speed pump",
       "photo": "weekly-pool-coral-gables-33146.webp",
       "alt": "Clear freeform chlorine pool with a spa and a canal behind it in Coral Gables.",
       "width": 1600,
@@ -24,22 +25,10 @@
         "About 11,000 gallons",
         "Cartridge filter"
       ],
+      "pump": "Variable-speed pump",
+      "heater": "Heated (heat pump)",
       "photo": "weekly-pool-homestead-33035.webp",
       "alt": "Clear rectangular saltwater pool with a spillover, pavers, and a covered patio in Homestead.",
-      "width": 1600,
-      "height": 1600
-    },
-    {
-      "id": "kendall-33186-weekly",
-      "neighborhood": "Kendall",
-      "zip": "33186",
-      "specs": [
-        "Saltwater",
-        "About 12,000 gallons",
-        "Cartridge filter"
-      ],
-      "photo": "weekly-pool-kendall-33186.webp",
-      "alt": "Clear oval saltwater pool with brick coping and a raised wall with fountains in Kendall.",
       "width": 1600,
       "height": 1600
     },
@@ -52,8 +41,27 @@
         "About 8,000 gallons",
         "Cartridge filter"
       ],
+      "pump": "Single-speed pump",
+      "automation": "Jandy automation system",
+      "heater": "Heated (heat pump)",
       "photo": "weekly-pool-kendall-33186-b.webp",
       "alt": "Clear rectangular saltwater pool with a white marble deck and a basketball hoop in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33186-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33186",
+      "specs": [
+        "Saltwater",
+        "About 12,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "heater": "Heated (heat pump)",
+      "photo": "weekly-pool-kendall-33186.webp",
+      "alt": "Clear oval saltwater pool with brick coping and a raised wall with fountains in Kendall.",
       "width": 1600,
       "height": 1600
     },
@@ -66,6 +74,7 @@
         "About 10,500 gallons",
         "Cartridge filter"
       ],
+      "pump": "Single-speed pump",
       "photo": "weekly-pool-kendall-33186-c.webp",
       "alt": "Clear kidney-shaped chlorine pool with a compass-star tile, turtle tiles on the steps, and a brick deck in Kendall.",
       "width": 1600,
@@ -80,6 +89,7 @@
         "About 6,000 gallons",
         "Sand filter"
       ],
+      "pump": "Single-speed pump",
       "photo": "weekly-pool-coconut-grove-33133.webp",
       "alt": "Clear narrow lap-style chlorine pool with a tropical hedge and a suction cleaner in the water in Coconut Grove.",
       "width": 1600,
@@ -94,6 +104,7 @@
         "About 12,000 gallons",
         "Cartridge filter"
       ],
+      "pump": "Variable-speed pump",
       "photo": "weekly-pool-kendall-33186-d.webp",
       "alt": "Clear freeform chlorine pool with dark tile, a travertine deck, palms, and a suction cleaner in Kendall.",
       "width": 1600,
@@ -108,6 +119,7 @@
         "About 11,000 gallons",
         "Cartridge filter"
       ],
+      "pump": "Single-speed pump",
       "photo": "weekly-pool-kendall-33186-e.webp",
       "alt": "Clear kidney-shaped chlorine pool with a white fence and a closed umbrella in Kendall.",
       "width": 1600,
@@ -122,6 +134,7 @@
         "About 15,000 gallons",
         "Cartridge filter"
       ],
+      "pump": "Single-speed pump",
       "photo": "weekly-pool-kendall-33186-f.webp",
       "alt": "Clear kidney-shaped chlorine pool with brick coping and palm shadows in the water in Kendall.",
       "width": 1600,

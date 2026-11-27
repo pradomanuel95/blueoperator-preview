@@ -2054,12 +2054,12 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   .ba-slider { border-radius: 16px; }
 }
 
-.serviced-pools { background: var(--mist); padding: 64px 0; }
+.serviced-pools { background: var(--mist); padding: 28px 0 64px; }
 #serviced-pools { scroll-margin-top: 96px; }
 .serviced-pools h2 {
   text-align: center;
   font-size: clamp(2rem, 1.2rem + 2.4vw, 3.1rem);
-  margin: 0 0 24px;
+  margin: 0 0 18px;
   text-wrap: pretty;
 }
 .serviced-pools-grid {
@@ -2073,18 +2073,68 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   max-width: 100%;
   width: 100%;
 }
+.serviced-pools-card[hidden] { display: none !important; }
 .serviced-pools-photo {
   overflow: hidden;
   border-radius: 16px;
-  background: #0a1620;
+  background: #d7e0e8;
+  aspect-ratio: 1 / 1;
 }
 .serviced-pools-photo img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+.serviced-pools-pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 0;
+}
+.serviced-pools-pager[hidden] { display: none !important; }
+.serviced-pools-pager button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1.5px solid #c5d5e2;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--navy);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  cursor: pointer;
+}
+.serviced-pools-pager button[data-page="prev"],
+.serviced-pools-pager button[data-page="next"] {
+  min-width: 7.5rem;
+}
+.serviced-pools-pager button[aria-current="page"] {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.serviced-pools-pager button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+@media (hover: hover) {
+  .serviced-pools-pager button:not(:disabled):not([aria-current="page"]):hover {
+    border-color: var(--navy);
+    background: var(--mist);
+  }
 }
 @media (min-width: 900px) {
-  .serviced-pools { padding: 96px 0; }
+  .serviced-pools { padding: 36px 0 96px; }
   .serviced-pools-grid { gap: 18px; }
   .serviced-pools-card {
     flex: 0 1 calc((100% - 36px) / 3);

@@ -1,12 +1,18 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271340";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811271500";
   var IMG_DIR = "assets/weekly/";
+  var PAGE_SIZE_DESKTOP = 12;
+  var PAGE_SIZE_MOBILE = 6;
+  var MQ_DESKTOP = window.matchMedia("(min-width: 900px)");
+  var currentPage = 1;
+  var updatingHash = false;
   var FALLBACK = [
     {
       id: "coral-gables-33146-weekly",
       neighborhood: "Coral Gables",
       zip: "33146",
       specs: ["Chlorine", "About 12,000 gallons", "Sand filter", "Spa"],
+      pump: "Single-speed pump",
       photo: "weekly-pool-coral-gables-33146.webp",
       alt: "Clear freeform chlorine pool with a spa and a canal behind it in Coral Gables.",
       width: 1600,
@@ -17,18 +23,10 @@
       neighborhood: "Homestead",
       zip: "33035",
       specs: ["Saltwater", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      heater: "Heated (heat pump)",
       photo: "weekly-pool-homestead-33035.webp",
       alt: "Clear rectangular saltwater pool with a spillover, pavers, and a covered patio in Homestead.",
-      width: 1600,
-      height: 1600
-    },
-    {
-      id: "kendall-33186-weekly",
-      neighborhood: "Kendall",
-      zip: "33186",
-      specs: ["Saltwater", "About 12,000 gallons", "Cartridge filter"],
-      photo: "weekly-pool-kendall-33186.webp",
-      alt: "Clear oval saltwater pool with brick coping and a raised wall with fountains in Kendall.",
       width: 1600,
       height: 1600
     },
@@ -37,8 +35,23 @@
       neighborhood: "Kendall",
       zip: "33186",
       specs: ["Saltwater", "About 8,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      automation: "Jandy automation system",
+      heater: "Heated (heat pump)",
       photo: "weekly-pool-kendall-33186-b.webp",
       alt: "Clear rectangular saltwater pool with a white marble deck and a basketball hoop in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Saltwater", "About 12,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      heater: "Heated (heat pump)",
+      photo: "weekly-pool-kendall-33186.webp",
+      alt: "Clear oval saltwater pool with brick coping and a raised wall with fountains in Kendall.",
       width: 1600,
       height: 1600
     },
@@ -47,6 +60,7 @@
       neighborhood: "Kendall",
       zip: "33186",
       specs: ["Chlorine", "About 10,500 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
       photo: "weekly-pool-kendall-33186-c.webp",
       alt: "Clear kidney-shaped chlorine pool with a compass-star tile, turtle tiles on the steps, and a brick deck in Kendall.",
       width: 1600,
@@ -57,6 +71,7 @@
       neighborhood: "Coconut Grove",
       zip: "33133",
       specs: ["Chlorine", "About 6,000 gallons", "Sand filter"],
+      pump: "Single-speed pump",
       photo: "weekly-pool-coconut-grove-33133.webp",
       alt: "Clear narrow lap-style chlorine pool with a tropical hedge and a suction cleaner in the water in Coconut Grove.",
       width: 1600,
@@ -67,6 +82,7 @@
       neighborhood: "Kendall",
       zip: "33186",
       specs: ["Chlorine", "About 12,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
       photo: "weekly-pool-kendall-33186-d.webp",
       alt: "Clear freeform chlorine pool with dark tile, a travertine deck, palms, and a suction cleaner in Kendall.",
       width: 1600,
@@ -77,6 +93,7 @@
       neighborhood: "Kendall",
       zip: "33186",
       specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
       photo: "weekly-pool-kendall-33186-e.webp",
       alt: "Clear kidney-shaped chlorine pool with a white fence and a closed umbrella in Kendall.",
       width: 1600,
@@ -87,6 +104,7 @@
       neighborhood: "Kendall",
       zip: "33186",
       specs: ["Chlorine", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
       photo: "weekly-pool-kendall-33186-f.webp",
       alt: "Clear kidney-shaped chlorine pool with brick coping and palm shadows in the water in Kendall.",
       width: 1600,
@@ -277,7 +295,7 @@
     return specs;
   }
 
-  function renderPool(pool) {
+  function renderPool(pool, index) {
     var src = IMG_DIR + (pool.photo || "");
     var w = pool.width || 1600;
     var h = pool.height || 1600;
@@ -291,11 +309,14 @@
         facts.map(function (s) { return "<li>" + escapeHtml(s) + "</li>"; }).join("") +
         "</ul>"
       : "";
+    var eager = index < 3
+      ? ' loading="eager" fetchpriority="high"'
+      : ' loading="lazy"';
 
     return (
       '<figure class="recent-work-job serviced-pools-card" data-pool-id="' + escapeHtml(pool.id || "") + '">' +
         '<div class="serviced-pools-photo">' +
-          '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(pool.alt || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
+          '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(pool.alt || "") + '" width="' + w + '" height="' + h + '"' + eager + ' decoding="async">' +
         "</div>" +
         '<figcaption class="recent-work-caption">' +
           list +
@@ -304,23 +325,174 @@
     );
   }
 
+  function getGrid() {
+    return document.getElementById("serviced-pools-grid");
+  }
+
+  function getCards() {
+    var grid = getGrid();
+    if (!grid) return [];
+    return Array.prototype.slice.call(grid.querySelectorAll(".serviced-pools-card"));
+  }
+
+  function attrInt(el, name, fallback) {
+    var n = el && parseInt(el.getAttribute(name), 10);
+    return n > 0 ? n : fallback;
+  }
+
+  function pageSize() {
+    var grid = getGrid();
+    if (MQ_DESKTOP.matches) return attrInt(grid, "data-page-size-desktop", PAGE_SIZE_DESKTOP);
+    return attrInt(grid, "data-page-size-mobile", PAGE_SIZE_MOBILE);
+  }
+
+  function firstVisibleIndex() {
+    var cards = getCards();
+    for (var i = 0; i < cards.length; i++) {
+      if (!cards[i].hidden) return i;
+    }
+    return Math.max(0, (currentPage - 1) * pageSize());
+  }
+
+  function pageCount(n) {
+    return Math.max(1, Math.ceil(n / pageSize()));
+  }
+
+  function pageFromHash() {
+    var h = location.hash || "";
+    var m = h.match(/^#serviced-pools(?:-p(\d+))?$/);
+    if (!m) return null;
+    return m[1] ? parseInt(m[1], 10) : 1;
+  }
+
+  function hashForPage(page) {
+    return "#serviced-pools-p" + page;
+  }
+
+  function updatePager(page, total) {
+    var nav = document.getElementById("serviced-pools-pager");
+    if (!nav) return;
+    if (total <= 1) {
+      nav.hidden = true;
+      nav.innerHTML = "";
+      return;
+    }
+    nav.hidden = false;
+    var html = '<button type="button" data-page="prev" aria-label="Previous page"' +
+      (page === 1 ? " disabled" : "") + ">Previous</button>";
+    for (var i = 1; i <= total; i++) {
+      html += '<button type="button" data-page="' + i + '"' +
+        (i === page ? ' aria-current="page"' : "") +
+        ' aria-label="Page ' + i + (i === page ? ", current page" : "") + '">' + i + "</button>";
+    }
+    html += '<button type="button" data-page="next" aria-label="Next page"' +
+      (page === total ? " disabled" : "") + ">Next</button>";
+    nav.innerHTML = html;
+  }
+
+  function applyPage(page, opts) {
+    opts = opts || {};
+    var grid = getGrid();
+    var cards = getCards();
+    if (!grid || !cards.length) return;
+    var total = pageCount(cards.length);
+    if (page < 1) page = 1;
+    if (page > total) page = total;
+    currentPage = page;
+    var size = pageSize();
+    cards.forEach(function (card, i) {
+      var on = Math.floor(i / size) === (page - 1);
+      card.hidden = !on;
+      var img = card.querySelector("img");
+      if (img && on) img.loading = "eager";
+    });
+    grid.setAttribute("data-page", String(page));
+    grid.setAttribute("data-page-size", String(size));
+    grid.setAttribute("data-count", String(cards.length));
+    updatePager(page, total);
+
+    if (opts.scroll) {
+      var section = document.getElementById("serviced-pools");
+      var title = document.getElementById("serviced-pools-title");
+      if (title) {
+        if (!title.hasAttribute("tabindex")) title.setAttribute("tabindex", "-1");
+        try { title.focus({ preventScroll: true }); } catch (err) { title.focus(); }
+      }
+      if (section) section.scrollIntoView({ behavior: opts.instant ? "auto" : "smooth", block: "start" });
+    }
+
+    if (opts.hash) {
+      var nextHash = hashForPage(page);
+      if (location.hash !== nextHash) {
+        updatingHash = true;
+        if (opts.replace) history.replaceState({ weeklyPage: page }, "", nextHash);
+        else history.pushState({ weeklyPage: page }, "", nextHash);
+        updatingHash = false;
+      }
+    }
+  }
+
   function mount(pools) {
-    var grid = document.getElementById("serviced-pools-grid");
+    var grid = getGrid();
     if (!grid || !pools || !pools.length) return;
-    grid.innerHTML = pools.map(renderPool).join("");
+    grid.innerHTML = pools.map(function (pool, i) { return renderPool(pool, i); }).join("");
     grid.setAttribute("data-count", String(pools.length));
   }
 
+  function bindPager() {
+    var nav = document.getElementById("serviced-pools-pager");
+    if (!nav || nav.getAttribute("data-bound") === "1") return;
+    nav.setAttribute("data-bound", "1");
+    nav.addEventListener("click", function (e) {
+      var btn = e.target.closest("button");
+      if (!btn || btn.disabled || nav.contains(btn) === false) return;
+      var t = btn.getAttribute("data-page");
+      var page = t === "prev" ? currentPage - 1 : t === "next" ? currentPage + 1 : parseInt(t, 10);
+      if (!page) return;
+      applyPage(page, { scroll: true, hash: true });
+    });
+  }
+
+  function onHashNav() {
+    if (updatingHash) return;
+    var p = pageFromHash();
+    if (p == null) {
+      applyPage(1, { scroll: false, hash: false });
+      return;
+    }
+    applyPage(p, { scroll: true, hash: false });
+  }
+
+  function onBreakpointChange() {
+    var first = firstVisibleIndex();
+    var size = pageSize();
+    var page = Math.floor(first / size) + 1;
+    var hasWeeklyHash = /^#serviced-pools(?:-p\d+)?$/.test(location.hash || "");
+    applyPage(page, { scroll: false, hash: hasWeeklyHash, replace: true });
+  }
+
   function start() {
-    var grid = document.getElementById("serviced-pools-grid");
+    var grid = getGrid();
     if (!grid) return;
-    var dataUrl = grid.getAttribute("data-src") || DATA_URL;
     var imgDir = grid.getAttribute("data-img-dir");
     if (imgDir) IMG_DIR = imgDir;
-    fetch(dataUrl, { credentials: "same-origin" })
-      .then(function (res) { if (!res.ok) throw new Error("weekly.json " + res.status); return res.json(); })
-      .then(function (data) { mount((data && data.pools) || FALLBACK); })
-      .catch(function () { mount(FALLBACK); });
+
+    if (!getCards().length) {
+      mount(FALLBACK);
+    }
+
+    bindPager();
+    window.addEventListener("popstate", onHashNav);
+    window.addEventListener("hashchange", onHashNav);
+    if (MQ_DESKTOP.addEventListener) MQ_DESKTOP.addEventListener("change", onBreakpointChange);
+    else if (MQ_DESKTOP.addListener) MQ_DESKTOP.addListener(onBreakpointChange);
+
+    var fromHash = pageFromHash();
+    applyPage(fromHash || 1, {
+      scroll: !!(fromHash && fromHash > 1),
+      hash: false,
+      instant: true
+    });
   }
 
   if (document.readyState === "loading") {
