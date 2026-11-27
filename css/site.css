@@ -2199,3 +2199,126 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 @media (max-width: 640px) {
   .serviced-pools-photo { border-radius: 16px; }
 }
+
+/* /our-work/ hero */
+.ow-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 260px;
+  overflow: hidden;
+  color: #fff;
+  background: var(--navy);
+}
+.ow-hero-media,
+.ow-hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+.ow-hero-media { z-index: 0; }
+.ow-hero-media img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 42%;
+}
+.ow-hero-overlay {
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(22, 50, 74, 0.84) 0%, rgba(22, 50, 74, 0.72) 48%, rgba(22, 50, 74, 0.58) 100%);
+  pointer-events: none;
+}
+.ow-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 28px 0 30px;
+}
+.ow-hero h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 1.15rem + 3.2vw, 3.2rem);
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.ow-hero-sub {
+  margin: 12px 0 0;
+  max-width: 36em;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+  text-wrap: pretty;
+}
+.ow-hero .rating {
+  color: #fff;
+  margin: 16px 0 0;
+}
+.ow-hero .rating-link:focus-visible {
+  outline-color: #fff;
+}
+.ow-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 0;
+}
+.ow-hero-cta .btn {
+  width: auto;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 20px;
+}
+.ow-hero-cta .btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.88);
+}
+.ow-hero-cta .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  color: #fff;
+}
+
+.ow-tabs {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.ow-tabs .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0;
+}
+.ow-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--mist);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ow-tab:hover { border-color: var(--navy); background: var(--sky); }
+
+#our-work { scroll-margin-top: 96px; }
+
+@media (max-width: 899px) {
+  .ow-hero-cta .btn { flex: 1 1 100%; white-space: nowrap; }
+  .recent-work-hub { padding-top: 28px; }
+}
+@media (min-width: 900px) {
+  .ow-hero {
+    min-height: 400px;
+    height: 420px;
+  }
+  .ow-hero-inner { padding: 36px 0; }
+  .ow-hero-sub { font-size: 1.12rem; }
+  .recent-work-hub { padding: 28px 0 72px; }
+}
