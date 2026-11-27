@@ -2033,9 +2033,12 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   box-shadow: var(--shadow);
 }
 .ba-slider:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+@media (max-width: 899px) {
+  .recent-work-job:nth-child(3) { display: none; }
+}
 @media (min-width: 900px) {
   .recent-work { padding: 96px 0; }
-  .recent-work-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .recent-work-grid { grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
 }
 @media (max-width: 640px) {
   .ba-slider { border-radius: 16px; }

@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811271012";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811271032";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -27,6 +27,20 @@
       after: "green-to-clean-after-kendall-33176.webp",
       altBefore: "Green kidney-shaped pool with a spa, pink deck, and shed in Kendall, before recovery.",
       altAfter: "The same Kendall kidney-shaped pool with a spa, pink deck, and shed, after recovery, with clear water.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "hammocks-33193-green-to-clean",
+      neighborhood: "The Hammocks",
+      zip: "33193",
+      service: "Green-to-clean recovery",
+      note: "The pool had gone a heavy green. The water is clear now.",
+      specs: ["Chlorine", "About 5,000 gallons", "Cartridge filter"],
+      before: "green-pool-before-hammocks-33193.webp",
+      after: "green-to-clean-after-hammocks-33193.webp",
+      altBefore: "Green rectangular pool with a sun shelf and screen enclosure in The Hammocks, before recovery.",
+      altAfter: "The same Hammocks pool after recovery, with clear water, a sun shelf, and screen enclosure.",
       width: 1600,
       height: 1699
     }
