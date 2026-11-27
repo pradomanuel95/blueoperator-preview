@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811271135";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811271140";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -62,20 +62,6 @@
       height: 1699
     },
     {
-      id: "kendall-33186-green-to-clean",
-      neighborhood: "Kendall",
-      zip: "33186",
-      service: "Green-to-clean recovery",
-      note: "Green and cloudy when we started. Clear blue now.",
-      specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
-      before: "green-pool-before-kendall-33186.webp",
-      after: "green-to-clean-after-kendall-33186.webp",
-      altBefore: "Green pool with a rounded sun shelf, safety fence, and terracotta deck in Kendall, before recovery.",
-      altAfter: "The same Kendall pool after recovery, with clear blue water, a rounded sun shelf, and safety fence.",
-      width: 1600,
-      height: 1699
-    },
-    {
       id: "kendall-33176-cloudy-to-clear",
       neighborhood: "Kendall",
       zip: "33176",
@@ -86,6 +72,20 @@
       after: "clear-pool-after-kendall-33176-b.webp",
       altBefore: "Saltwater pool in Kendall with algae-clouded green water, a white house, and light stone deck, before it was cleared.",
       altAfter: "The same Kendall pool after the algae was cleared, with a white house and light stone deck.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "kendall-33186-green-to-clean",
+      neighborhood: "Kendall",
+      zip: "33186",
+      service: "Green-to-clean recovery",
+      note: "Green and cloudy when we started. Clear blue now.",
+      specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
+      before: "green-pool-before-kendall-33186.webp",
+      after: "green-to-clean-after-kendall-33186.webp",
+      altBefore: "Green pool with a rounded sun shelf, safety fence, and terracotta deck in Kendall, before recovery.",
+      altAfter: "The same Kendall pool after recovery, with clear blue water, a rounded sun shelf, and safety fence.",
       width: 1600,
       height: 1699
     },
