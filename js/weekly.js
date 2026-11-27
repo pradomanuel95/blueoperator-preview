@@ -1,7 +1,7 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271900";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811272010";
   var IMG_DIR = "assets/weekly/";
-  var PAGE_SIZE_DESKTOP = 12;
+  var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
   var MQ_DESKTOP = window.matchMedia("(min-width: 900px)");
   var currentPage = 1;
@@ -301,11 +301,8 @@
     var h = pool.height || 1600;
     var place = pool.neighborhood || "";
     if (place && pool.zip) place += ", FL " + pool.zip;
-    var titled = index < 2;
-    var facts = [];
-    if (place && !titled) facts.push(place);
-    facts = facts.concat(collectSpecs(pool));
-    var title = (titled && place)
+    var facts = collectSpecs(pool);
+    var title = place
       ? '<h3 class="serviced-pools-place">' + escapeHtml(place) + "</h3>"
       : "";
     var list = facts.length
@@ -418,13 +415,15 @@
     grid.setAttribute("data-count", String(cards.length));
     updatePager(page, total);
 
+    if (opts.focus) {
+      var heading = document.getElementById("serviced-pools-title");
+      if (heading) {
+        if (!heading.hasAttribute("tabindex")) heading.setAttribute("tabindex", "-1");
+        try { heading.focus({ preventScroll: true }); } catch (err) { heading.focus(); }
+      }
+    }
     if (opts.scroll) {
       var section = document.getElementById("serviced-pools");
-      var title = document.getElementById("serviced-pools-title");
-      if (title) {
-        if (!title.hasAttribute("tabindex")) title.setAttribute("tabindex", "-1");
-        try { title.focus({ preventScroll: true }); } catch (err) { title.focus(); }
-      }
       if (section) section.scrollIntoView({ behavior: opts.instant ? "auto" : "smooth", block: "start" });
     }
 
@@ -456,7 +455,7 @@
       var t = btn.getAttribute("data-page");
       var page = t === "prev" ? currentPage - 1 : t === "next" ? currentPage + 1 : parseInt(t, 10);
       if (!page) return;
-      applyPage(page, { scroll: true, hash: true });
+      applyPage(page, { scroll: true, focus: true, hash: true });
     });
   }
 
@@ -464,10 +463,10 @@
     if (updatingHash) return;
     var p = pageFromHash();
     if (p == null) {
-      applyPage(1, { scroll: false, hash: false });
+      applyPage(1, { scroll: false, focus: false, hash: false });
       return;
     }
-    applyPage(p, { scroll: true, hash: false });
+    applyPage(p, { scroll: true, focus: false, hash: false });
   }
 
   function onBreakpointChange() {
@@ -496,7 +495,8 @@
 
     var fromHash = pageFromHash();
     applyPage(fromHash || 1, {
-      scroll: !!(fromHash && fromHash > 1),
+      scroll: fromHash != null,
+      focus: false,
       hash: false,
       instant: true
     });

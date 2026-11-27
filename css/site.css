@@ -64,6 +64,9 @@ h3 { line-height: 1.25; }
   outline-offset: 3px;
 }
 
+#serviced-pools-title:focus:not(:focus-visible) { outline: none; }
+
+
 .wrap {
   width: min(var(--wrap), calc(100% - 40px));
   margin-inline: auto;
