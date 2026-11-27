@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811272155";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811272245";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
@@ -455,6 +455,129 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-west-kendall-33196-c.webp",
       alt: "Clear rectangular chlorine pool with brick coping and tiled steps in West Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-lakes-33183-d-weekly",
+      neighborhood: "Kendall Lakes",
+      zip: "33183",
+      specs: ["Saltwater", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-lakes-33183-d.webp",
+      alt: "Clear freeform saltwater pool with a white stone deck and a vacuum hose in Kendall Lakes.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "west-kendall-33193-weekly",
+      neighborhood: "West Kendall",
+      zip: "33193",
+      specs: ["Saltwater", "About 8,500 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      heater: "Heated (heat pump)",
+      photo: "weekly-pool-west-kendall-33193.webp",
+      alt: "Clear rectangular saltwater pool with mosaic tile steps and a raised spa in West Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "redland-33187-weekly",
+      neighborhood: "Redland",
+      zip: "33187",
+      specs: ["Chlorine", "About 18,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-redland-33187.webp",
+      alt: "Clear freeform chlorine pool with a sun shelf and a beige shed in Redland.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-lakes-33183-e-weekly",
+      neighborhood: "Kendall Lakes",
+      zip: "33183",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-lakes-33183-e.webp",
+      alt: "Clear rectangular chlorine pool with brick coping and a metal handrail in Kendall Lakes.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "cutler-bay-33157-weekly",
+      neighborhood: "Cutler Bay",
+      zip: "33157",
+      specs: ["Chlorine", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-cutler-bay-33157.webp",
+      alt: "Clear freeform chlorine pool with flagstone coping and a vacuum hose in Cutler Bay.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "homestead-33033-weekly",
+      neighborhood: "Homestead",
+      zip: "33033",
+      specs: ["Saltwater", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-homestead-33033.webp",
+      alt: "Clear rectangular saltwater pool with a volleyball net and a vacuum hose in Homestead.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "redland-33031-weekly",
+      neighborhood: "Redland",
+      zip: "33031",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-redland-33031.webp",
+      alt: "Clear freeform chlorine pool with beige bullnose coping and a white picket fence in Redland.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "naranja-33032-weekly",
+      neighborhood: "Naranja",
+      zip: "33032",
+      specs: ["Saltwater", "About 18,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      photo: "weekly-pool-naranja-33032.webp",
+      alt: "Clear rectangular saltwater pool with a mosaic tile sun shelf, in-water stools, and a vacuum in Naranja.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "cutler-bay-33157-b-weekly",
+      neighborhood: "Cutler Bay",
+      zip: "33157",
+      specs: ["Chlorine", "About 14,000 gallons", "Sand filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-cutler-bay-33157-b.webp",
+      alt: "Clear rectangular chlorine pool under a screen enclosure with a white lattice in Cutler Bay.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-l-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      heater: "Heated (heat pump)",
+      photo: "weekly-pool-kendall-33186-l.webp",
+      alt: "Clear freeform chlorine pool with a raised spa, flagstone coping, and a blue shade sail in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "cutler-bay-33189-weekly",
+      neighborhood: "Cutler Bay",
+      zip: "33189",
+      specs: ["Saltwater", "About 9,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-cutler-bay-33189.webp",
+      alt: "Clear freeform saltwater pool with a sun shelf and screen enclosure in Cutler Bay.",
       width: 1600,
       height: 1600
     }
