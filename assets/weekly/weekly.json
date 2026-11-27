@@ -429,6 +429,67 @@
       "alt": "Clear rectangular chlorine pool under a screen enclosure with a light stone deck in Kendall.",
       "width": 1600,
       "height": 1600
+    },
+    {
+      "id": "kendall-33176-g-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Saltwater",
+        "About 11,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "heater": "Heated (A/C heat recovery)",
+      "photo": "weekly-pool-kendall-33176-g.webp",
+      "alt": "Clear rectangular saltwater pool with dolphin tiles, a spa, and a thatched tiki hut in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33173-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33173",
+      "specs": [
+        "Chlorine",
+        "About 12,500 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33173.webp",
+      "alt": "Clear oval chlorine pool with red brick coping and a covered patio in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33186-j-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33186",
+      "specs": [
+        "Chlorine",
+        "About 26,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33186-j.webp",
+      "alt": "Clear rectangular chlorine pool with a lane line and a thatched tiki hut in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "tamiami-33175-weekly",
+      "neighborhood": "Tamiami",
+      "zip": "33175",
+      "specs": [
+        "Chlorine",
+        "About 13,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-tamiami-33175.webp",
+      "alt": "Clear rectangular chlorine pool with a stone deck and palms in Tamiami.",
+      "width": 1600,
+      "height": 1600
     }
   ]
 }
