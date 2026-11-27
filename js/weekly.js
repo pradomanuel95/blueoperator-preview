@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271200";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811271230";
   var IMG_DIR = "assets/weekly/";
   var FALLBACK = [
     {
@@ -13,12 +13,72 @@
       height: 1600
     },
     {
+      id: "homestead-33035-weekly",
+      neighborhood: "Homestead",
+      zip: "33035",
+      specs: ["Saltwater", "About 11,000 gallons", "Cartridge filter"],
+      photo: "weekly-pool-homestead-33035.webp",
+      alt: "Clear rectangular saltwater pool with a spillover, pavers, and a covered patio in Homestead.",
+      width: 1600,
+      height: 1600
+    },
+    {
       id: "kendall-33186-weekly",
       neighborhood: "Kendall",
       zip: "33186",
       specs: ["Saltwater", "About 12,000 gallons", "Cartridge filter"],
       photo: "weekly-pool-kendall-33186.webp",
       alt: "Clear oval saltwater pool with brick coping and a raised wall with fountains in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-b-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Saltwater", "About 8,000 gallons", "Cartridge filter"],
+      photo: "weekly-pool-kendall-33186-b.webp",
+      alt: "Clear rectangular saltwater pool with a white marble deck and a basketball hoop in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-c-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 10,500 gallons", "Cartridge filter"],
+      photo: "weekly-pool-kendall-33186-c.webp",
+      alt: "Clear kidney-shaped chlorine pool with a compass-star tile, turtle tiles on the steps, and a brick deck in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "coconut-grove-33133-weekly",
+      neighborhood: "Coconut Grove",
+      zip: "33133",
+      specs: ["Chlorine", "About 6,000 gallons", "Sand filter"],
+      photo: "weekly-pool-coconut-grove-33133.webp",
+      alt: "Clear narrow lap-style chlorine pool with a tropical hedge and a suction cleaner in the water in Coconut Grove.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-d-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 12,000 gallons", "Cartridge filter"],
+      photo: "weekly-pool-kendall-33186-d.webp",
+      alt: "Clear freeform chlorine pool with dark tile, a travertine deck, palms, and a suction cleaner in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-e-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      photo: "weekly-pool-kendall-33186-e.webp",
+      alt: "Clear kidney-shaped chlorine pool with a white fence and a closed umbrella in Kendall.",
       width: 1600,
       height: 1600
     }
