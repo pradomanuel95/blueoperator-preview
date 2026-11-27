@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271500";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811271555";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 12;
   var PAGE_SIZE_MOBILE = 6;
@@ -301,9 +301,13 @@
     var h = pool.height || 1600;
     var place = pool.neighborhood || "";
     if (place && pool.zip) place += ", FL " + pool.zip;
+    var titled = index < 2;
     var facts = [];
-    if (place) facts.push(place);
+    if (place && !titled) facts.push(place);
     facts = facts.concat(collectSpecs(pool));
+    var title = (titled && place)
+      ? '<h3 class="serviced-pools-place">' + escapeHtml(place) + "</h3>"
+      : "";
     var list = facts.length
       ? '<ul class="recent-work-facts">' +
         facts.map(function (s) { return "<li>" + escapeHtml(s) + "</li>"; }).join("") +
@@ -319,6 +323,7 @@
           '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(pool.alt || "") + '" width="' + w + '" height="' + h + '"' + eager + ' decoding="async">' +
         "</div>" +
         '<figcaption class="recent-work-caption">' +
+          title +
           list +
         "</figcaption>" +
       "</figure>"

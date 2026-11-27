@@ -2066,12 +2066,15 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 14px;
 }
 .serviced-pools-card {
   flex: 1 1 100%;
   max-width: 100%;
   width: 100%;
+  height: auto;
+  align-self: stretch;
 }
 .serviced-pools-card[hidden] { display: none !important; }
 .serviced-pools-photo {
@@ -2087,6 +2090,17 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   object-fit: cover;
   aspect-ratio: 1 / 1;
 }
+.serviced-pools-place {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.serviced-pools-place + .recent-work-facts { margin-top: 8px; }
 .serviced-pools-pager {
   display: flex;
   flex-wrap: wrap;
