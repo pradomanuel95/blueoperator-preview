@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811271002";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811271012";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -140,17 +140,20 @@
     var h = job.height || 1699;
     var place = job.neighborhood || "";
     if (place && job.zip) place += ", FL " + job.zip;
-    var label = (place ? place + " · " : "") + (job.service || "Green-to-clean recovery");
+    var facts = [];
+    if (place) facts.push(place);
+    if (job.specs && job.specs.length) facts = facts.concat(job.specs);
     var note = job.note
       ? '<p class="recent-work-note">' + escapeHtml(job.note) + "</p>"
       : "";
-    var specs = "";
-    if (job.specs && job.specs.length) {
-      specs = '<p class="recent-work-specs">' +
-        job.specs.map(function (s) { return "<span>" + escapeHtml(s) + "</span>"; }).join("") +
-        "</p>";
-    }
-    var aria = "Before and after comparison: " + label;
+    var list = facts.length
+      ? '<ul class="recent-work-facts">' +
+        facts.map(function (s) { return "<li>" + escapeHtml(s) + "</li>"; }).join("") +
+        "</ul>"
+      : "";
+    var aria = "Before and after comparison" +
+      (place ? ": " + place : "") +
+      (job.service ? ", " + job.service : "");
 
     return (
       '<figure class="recent-work-job">' +
@@ -168,9 +171,8 @@
           "</div>" +
         "</div>" +
         '<figcaption class="recent-work-caption">' +
-          "<p>" + escapeHtml(label) + "</p>" +
           note +
-          specs +
+          list +
         "</figcaption>" +
       "</figure>"
     );
