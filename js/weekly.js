@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271280";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811271340";
   var IMG_DIR = "assets/weekly/";
   var FALLBACK = [
     {
@@ -126,6 +126,17 @@
       height: 1600
     },
     {
+      id: "kendall-lakes-33183-b-weekly",
+      neighborhood: "Kendall Lakes",
+      zip: "33183",
+      specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-lakes-33183-b.webp",
+      alt: "Clear kidney-shaped chlorine pool with a tropical hedge and a suction hose in Kendall Lakes.",
+      width: 1600,
+      height: 1600
+    },
+    {
       id: "west-kendall-33196-b-weekly",
       neighborhood: "West Kendall",
       zip: "33196",
@@ -166,6 +177,18 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-kendall-33186-g.webp",
       alt: "Clear chlorine pool with long steps and tropical plants in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-h-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 13,000 gallons", "Cartridge filter", "Spa"],
+      pump: "Single-speed pump",
+      automation: "Jandy automation system",
+      photo: "weekly-pool-kendall-33186-h.webp",
+      alt: "Clear freeform chlorine pool with a spa and a technician brushing the water in Kendall.",
       width: 1600,
       height: 1600
     },
