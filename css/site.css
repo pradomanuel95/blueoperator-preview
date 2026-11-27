@@ -2053,3 +2053,40 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 @media (max-width: 640px) {
   .ba-slider { border-radius: 16px; }
 }
+
+.serviced-pools { background: var(--mist); padding: 64px 0; }
+#serviced-pools { scroll-margin-top: 96px; }
+.serviced-pools h2 {
+  text-align: center;
+  font-size: clamp(2rem, 1.2rem + 2.4vw, 3.1rem);
+  margin: 0 0 24px;
+  text-wrap: pretty;
+}
+.serviced-pools-grid {
+  display: grid;
+  gap: 14px;
+  justify-content: center;
+}
+.serviced-pools-photo {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0a1620;
+}
+.serviced-pools-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 900px) {
+  .serviced-pools { padding: 96px 0; }
+  .serviced-pools-grid {
+    gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .serviced-pools-grid[data-count="1"] {
+    grid-template-columns: minmax(0, calc((100% - 18px) / 2));
+  }
+}
+@media (max-width: 640px) {
+  .serviced-pools-photo { border-radius: 16px; }
+}

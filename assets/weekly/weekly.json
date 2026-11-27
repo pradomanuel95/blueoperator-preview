@@ -1,0 +1,33 @@
+{
+  "pools": [
+    {
+      "id": "coral-gables-33146-weekly",
+      "neighborhood": "Coral Gables",
+      "zip": "33146",
+      "specs": [
+        "Chlorine",
+        "About 12,000 gallons",
+        "Sand filter",
+        "Spa"
+      ],
+      "photo": "weekly-pool-coral-gables-33146.webp",
+      "alt": "Clear freeform chlorine pool with a spa and a canal behind it in Coral Gables.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33186-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33186",
+      "specs": [
+        "Saltwater",
+        "About 12,000 gallons",
+        "Cartridge filter"
+      ],
+      "photo": "weekly-pool-kendall-33186.webp",
+      "alt": "Clear oval saltwater pool with brick coping and a raised wall with fountains in Kendall.",
+      "width": 1600,
+      "height": 1600
+    }
+  ]
+}
