@@ -2307,7 +2307,9 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 }
 .ow-tab:hover { border-color: var(--navy); background: var(--sky); }
 
-#our-work { scroll-margin-top: 96px; }
+#our-work,
+#green-to-clean,
+#our-work-faq { scroll-margin-top: 96px; }
 
 @media (max-width: 899px) {
   .ow-hero-cta .btn { flex: 1 1 100%; white-space: nowrap; }
