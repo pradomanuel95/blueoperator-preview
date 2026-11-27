@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811271120";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811271135";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -79,13 +79,13 @@
       id: "kendall-33176-cloudy-to-clear",
       neighborhood: "Kendall",
       zip: "33176",
-      service: "Cloudy-to-clear recovery",
-      note: "The water had gone cloudy. We brought it back to clear.",
+      service: "Algae-to-clear recovery",
+      note: "Algae had clouded the water green. We brought it back to clear.",
       specs: ["Saltwater", "About 40,000 gallons", "Quad cartridge filter"],
       before: "cloudy-pool-before-kendall-33176-b.webp",
       after: "clear-pool-after-kendall-33176-b.webp",
-      altBefore: "Cloudy saltwater pool in Kendall before it was cleared, with a white house and light stone deck.",
-      altAfter: "The same Kendall pool after the water was cleared, with a white house and light stone deck.",
+      altBefore: "Saltwater pool in Kendall with algae-clouded green water, a white house, and light stone deck, before it was cleared.",
+      altAfter: "The same Kendall pool after the algae was cleared, with a white house and light stone deck.",
       width: 1600,
       height: 1699
     },
