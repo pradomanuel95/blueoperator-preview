@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811272130";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811272155";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
@@ -280,6 +280,17 @@
       height: 1600
     },
     {
+      id: "kendall-33186-k-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 2,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-33186-k.webp",
+      alt: "Clear rectangular chlorine pool with a sun shelf and white stone coping in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
       id: "kendall-33176-f-weekly",
       neighborhood: "Kendall",
       zip: "33176",
@@ -365,6 +376,85 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-tamiami-33175.webp",
       alt: "Clear rectangular chlorine pool with a stone deck and palms in Tamiami.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33176-h-weekly",
+      neighborhood: "Kendall",
+      zip: "33176",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-33176-h.webp",
+      alt: "Clear rectangular chlorine pool with a pebble finish under a screen enclosure in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "pinecrest-33156-weekly",
+      neighborhood: "Pinecrest",
+      zip: "33156",
+      specs: ["Chlorine", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-pinecrest-33156.webp",
+      alt: "Clear rectangular chlorine pool with a spa and a modern white house in Pinecrest.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33176-i-weekly",
+      neighborhood: "Kendall",
+      zip: "33176",
+      specs: ["Saltwater", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      photo: "weekly-pool-kendall-33176-i.webp",
+      alt: "Clear freeform saltwater pool with a raised spa and tiled steps in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33176-j-weekly",
+      neighborhood: "Kendall",
+      zip: "33176",
+      specs: ["Chlorine", "About 21,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-33176-j.webp",
+      alt: "Clear rectangular chlorine pool with brick coping and a palm in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "princeton-33032-weekly",
+      neighborhood: "Princeton",
+      zip: "33032",
+      specs: ["Saltwater", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      heater: "Heated (heat pump)",
+      photo: "weekly-pool-princeton-33032.webp",
+      alt: "Clear rectangular saltwater pool with a sun shelf and a spa in Princeton.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "coconut-grove-33133-b-weekly",
+      neighborhood: "Coconut Grove",
+      zip: "33133",
+      specs: ["Chlorine", "About 3,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      heater: "Heated (heat pump)",
+      photo: "weekly-pool-coconut-grove-33133-b.webp",
+      alt: "Clear rectangular chlorine pool with tiled steps and white lounge chairs in Coconut Grove.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "west-kendall-33196-c-weekly",
+      neighborhood: "West Kendall",
+      zip: "33196",
+      specs: ["Chlorine", "About 7,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-west-kendall-33196-c.webp",
+      alt: "Clear rectangular chlorine pool with brick coping and tiled steps in West Kendall.",
       width: 1600,
       height: 1600
     }
@@ -495,27 +585,81 @@
     return "#serviced-pools-p" + page;
   }
 
+  function pageItems(current, total, mode) {
+    var i, items = [];
+    if (mode === "full" || total <= 5) {
+      for (i = 1; i <= total; i++) items.push(i);
+      return items;
+    }
+    if (mode === "sparse") {
+      if (current <= 1 || current >= total) return [1, "\u2026", total];
+      return [1, "\u2026", current, "\u2026", total];
+    }
+    if (current <= 3) {
+      items = [1, 2, 3, 4];
+      if (total > 5) items.push("\u2026", total);
+      else {
+        for (i = 5; i <= total; i++) items.push(i);
+      }
+      return items;
+    }
+    if (current >= total - 2) {
+      return [1, "\u2026", total - 3, total - 2, total - 1, total];
+    }
+    return [1, "\u2026", current - 1, current, current + 1, "\u2026", total];
+  }
+
   function updatePager(page, total) {
     var nav = document.getElementById("serviced-pools-pager");
     if (!nav) return;
     if (total <= 1) {
       nav.hidden = true;
       nav.innerHTML = "";
+      nav.classList.remove("is-compact", "is-tight");
       return;
     }
     nav.hidden = false;
     var chevronPrev = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var chevronNext = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    var html = '<button type="button" data-page="prev" aria-label="Previous page"' +
-      (page === 1 ? " disabled" : "") + ">" + chevronPrev + "</button>";
-    for (var i = 1; i <= total; i++) {
-      html += '<button type="button" data-page="' + i + '"' +
-        (i === page ? ' aria-current="page"' : "") +
-        ' aria-label="Page ' + i + (i === page ? ", current page" : "") + '">' + i + "</button>";
+
+    function buttonHtml(n) {
+      return '<button type="button" data-page="' + n + '"' +
+        (n === page ? ' aria-current="page"' : "") +
+        ' aria-label="Page ' + n + (n === page ? ", current page" : "") + '">' + n + "</button>";
     }
-    html += '<button type="button" data-page="next" aria-label="Next page"' +
-      (page === total ? " disabled" : "") + ">" + chevronNext + "</button>";
-    nav.innerHTML = html;
+
+    function render(items) {
+      var html = '<button type="button" data-page="prev" aria-label="Previous page"' +
+        (page === 1 ? " disabled" : "") + ">" + chevronPrev + "</button>";
+      for (var i = 0; i < items.length; i++) {
+        if (items[i] === "\u2026") {
+          html += '<span class="pager-ellipsis" aria-hidden="true">\u2026</span>';
+        } else {
+          html += buttonHtml(items[i]);
+        }
+      }
+      html += '<button type="button" data-page="next" aria-label="Next page"' +
+        (page === total ? " disabled" : "") + ">" + chevronNext + "</button>";
+      nav.innerHTML = html;
+    }
+
+    function overflowed() {
+      var avail = nav.parentElement ? nav.parentElement.clientWidth : nav.clientWidth;
+      return nav.scrollWidth > avail + 1;
+    }
+
+    nav.classList.remove("is-compact", "is-tight");
+    var items = pageItems(page, total, total <= 5 ? "full" : "window");
+    if (total >= 6) nav.classList.add("is-compact");
+    render(items);
+    if (overflowed()) {
+      nav.classList.add("is-compact", "is-tight");
+      render(items);
+    }
+    if (overflowed() && total >= 6) {
+      items = pageItems(page, total, "sparse");
+      render(items);
+    }
   }
 
   function applyPage(page, opts) {
@@ -616,6 +760,16 @@
     window.addEventListener("hashchange", onHashNav);
     if (MQ_DESKTOP.addEventListener) MQ_DESKTOP.addEventListener("change", onBreakpointChange);
     else if (MQ_DESKTOP.addListener) MQ_DESKTOP.addListener(onBreakpointChange);
+
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var cards = getCards();
+        if (!cards.length) return;
+        updatePager(currentPage, pageCount(cards.length));
+      }, 120);
+    });
 
     var fromHash = pageFromHash();
     applyPage(fromHash || 1, {

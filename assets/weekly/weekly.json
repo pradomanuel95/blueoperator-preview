@@ -371,6 +371,21 @@
       "height": 1600
     },
     {
+      "id": "kendall-33186-k-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33186",
+      "specs": [
+        "Chlorine",
+        "About 2,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33186-k.webp",
+      "alt": "Clear rectangular chlorine pool with a sun shelf and white stone coping in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
       "id": "kendall-33176-f-weekly",
       "neighborhood": "Kendall",
       "zip": "33176",
@@ -488,6 +503,113 @@
       "pump": "Single-speed pump",
       "photo": "weekly-pool-tamiami-33175.webp",
       "alt": "Clear rectangular chlorine pool with a stone deck and palms in Tamiami.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-h-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Chlorine",
+        "About 11,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33176-h.webp",
+      "alt": "Clear rectangular chlorine pool with a pebble finish under a screen enclosure in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "pinecrest-33156-weekly",
+      "neighborhood": "Pinecrest",
+      "zip": "33156",
+      "specs": [
+        "Chlorine",
+        "About 15,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-pinecrest-33156.webp",
+      "alt": "Clear rectangular chlorine pool with a spa and a modern white house in Pinecrest.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-i-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Saltwater",
+        "About 11,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Variable-speed pump",
+      "photo": "weekly-pool-kendall-33176-i.webp",
+      "alt": "Clear freeform saltwater pool with a raised spa and tiled steps in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-j-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Chlorine",
+        "About 21,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33176-j.webp",
+      "alt": "Clear rectangular chlorine pool with brick coping and a palm in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "princeton-33032-weekly",
+      "neighborhood": "Princeton",
+      "zip": "33032",
+      "specs": [
+        "Saltwater",
+        "About 11,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Variable-speed pump",
+      "heater": "Heated (heat pump)",
+      "photo": "weekly-pool-princeton-33032.webp",
+      "alt": "Clear rectangular saltwater pool with a sun shelf and a spa in Princeton.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "coconut-grove-33133-b-weekly",
+      "neighborhood": "Coconut Grove",
+      "zip": "33133",
+      "specs": [
+        "Chlorine",
+        "About 3,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "heater": "Heated (heat pump)",
+      "photo": "weekly-pool-coconut-grove-33133-b.webp",
+      "alt": "Clear rectangular chlorine pool with tiled steps and white lounge chairs in Coconut Grove.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "west-kendall-33196-c-weekly",
+      "neighborhood": "West Kendall",
+      "zip": "33196",
+      "specs": [
+        "Chlorine",
+        "About 7,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-west-kendall-33196-c.webp",
+      "alt": "Clear rectangular chlorine pool with brick coping and tiled steps in West Kendall.",
       "width": 1600,
       "height": 1600
     }

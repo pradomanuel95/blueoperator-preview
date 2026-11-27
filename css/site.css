@@ -2111,6 +2111,8 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   align-items: center;
   gap: 6px;
   margin: 24px 0 0;
+  max-width: 100%;
+  box-sizing: border-box;
   white-space: nowrap;
 }
 .serviced-pools-pager[hidden] { display: none !important; }
@@ -2150,6 +2152,34 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 .serviced-pools-pager button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+.serviced-pools-pager.is-compact {
+  gap: 4px;
+}
+.serviced-pools-pager .pager-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 12px;
+  min-width: 12px;
+  height: 44px;
+  color: var(--navy);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.92rem;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.serviced-pools-pager.is-tight button {
+  min-width: 40px;
+  width: 40px;
+  min-height: 40px;
+  height: 40px;
+}
+.serviced-pools-pager.is-tight .pager-ellipsis {
+  height: 40px;
 }
 @media (hover: hover) {
   .serviced-pools-pager button:not(:disabled):not([aria-current="page"]):hover {
