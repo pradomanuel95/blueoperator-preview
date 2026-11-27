@@ -1879,7 +1879,7 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
 }
 .recent-work-note {
   margin: 0;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.55;
