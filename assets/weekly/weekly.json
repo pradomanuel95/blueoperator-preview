@@ -779,6 +779,51 @@
       "alt": "Clear freeform saltwater pool with a sun shelf and screen enclosure in Cutler Bay.",
       "width": 1600,
       "height": 1600
+    },
+    {
+      "id": "palmetto-bay-33157-weekly",
+      "neighborhood": "Palmetto Bay",
+      "zip": "33157",
+      "specs": [
+        "Saltwater",
+        "About 15,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Variable-speed pump",
+      "photo": "weekly-pool-palmetto-bay-33157.webp",
+      "alt": "Clear rectangular saltwater pool with a sun shelf and screen enclosure in Palmetto Bay.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "west-kendall-33185-weekly",
+      "neighborhood": "West Kendall",
+      "zip": "33185",
+      "specs": [
+        "Chlorine",
+        "About 11,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Dual-speed pump",
+      "photo": "weekly-pool-west-kendall-33185.webp",
+      "alt": "Clear freeform chlorine pool with a raised spa, mosaic steps, and a brick deck in West Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-lakes-33183-f-weekly",
+      "neighborhood": "Kendall Lakes",
+      "zip": "33183",
+      "specs": [
+        "Saltwater",
+        "About 13,500 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-lakes-33183-f.webp",
+      "alt": "Clear rectangular saltwater pool with a mosaic-tile step and lounge chairs in Kendall Lakes.",
+      "width": 1600,
+      "height": 1600
     }
   ]
 }
