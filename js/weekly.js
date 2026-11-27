@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271555";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811271900";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 12;
   var PAGE_SIZE_MOBILE = 6;
@@ -383,15 +383,17 @@
       return;
     }
     nav.hidden = false;
+    var chevronPrev = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var chevronNext = '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var html = '<button type="button" data-page="prev" aria-label="Previous page"' +
-      (page === 1 ? " disabled" : "") + ">Previous</button>";
+      (page === 1 ? " disabled" : "") + ">" + chevronPrev + "</button>";
     for (var i = 1; i <= total; i++) {
       html += '<button type="button" data-page="' + i + '"' +
         (i === page ? ' aria-current="page"' : "") +
         ' aria-label="Page ' + i + (i === page ? ", current page" : "") + '">' + i + "</button>";
     }
     html += '<button type="button" data-page="next" aria-label="Next page"' +
-      (page === total ? " disabled" : "") + ">Next</button>";
+      (page === total ? " disabled" : "") + ">" + chevronNext + "</button>";
     nav.innerHTML = html;
   }
 
