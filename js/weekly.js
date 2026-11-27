@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811271230";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811271280";
   var IMG_DIR = "assets/weekly/";
   var FALLBACK = [
     {
@@ -81,6 +81,127 @@
       alt: "Clear kidney-shaped chlorine pool with a white fence and a closed umbrella in Kendall.",
       width: 1600,
       height: 1600
+    },
+    {
+      id: "kendall-33186-f-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 15,000 gallons", "Cartridge filter"],
+      photo: "weekly-pool-kendall-33186-f.webp",
+      alt: "Clear kidney-shaped chlorine pool with brick coping and palm shadows in the water in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-lakes-33183-weekly",
+      neighborhood: "Kendall Lakes",
+      zip: "33183",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-lakes-33183.webp",
+      alt: "Clear chlorine pool with brick coping and a shed in Kendall Lakes.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "west-kendall-33196-weekly",
+      neighborhood: "West Kendall",
+      zip: "33196",
+      specs: ["Saltwater", "About 12,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      photo: "weekly-pool-west-kendall-33196.webp",
+      alt: "Clear rectangular saltwater pool with a sun shelf and a white fence in West Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33176-weekly",
+      neighborhood: "Kendall",
+      zip: "33176",
+      specs: ["Chlorine", "About 11,000 gallons", "Sand filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-33176.webp",
+      alt: "Clear rectangular chlorine pool with a gray fence and sliding doors in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "west-kendall-33196-b-weekly",
+      neighborhood: "West Kendall",
+      zip: "33196",
+      specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-west-kendall-33196-b.webp",
+      alt: "Clear kidney-shaped chlorine pool with brick coping, a shed, and a wood fence in West Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "westchester-33155-weekly",
+      neighborhood: "Westchester",
+      zip: "33155",
+      specs: ["Chlorine", "About 13,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-westchester-33155.webp",
+      alt: "Clear rectangular chlorine pool with dolphin tiles and a vacuum in the water in Westchester.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "coral-gables-33134-weekly",
+      neighborhood: "Coral Gables",
+      zip: "33134",
+      specs: ["Saltwater", "About 33,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      photo: "weekly-pool-coral-gables-33134.webp",
+      alt: "Clear large rectangular saltwater pool with bright blue water and tree shadows in Coral Gables.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33186-g-weekly",
+      neighborhood: "Kendall",
+      zip: "33186",
+      specs: ["Chlorine", "About 9,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-33186-g.webp",
+      alt: "Clear chlorine pool with long steps and tropical plants in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "westchester-33155-b-weekly",
+      neighborhood: "Westchester",
+      zip: "33155",
+      specs: ["Chlorine", "About 11,500 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-westchester-33155-b.webp",
+      alt: "Clear kidney-shaped chlorine pool with tan coping and a white wall in Westchester.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "tamiami-33185-weekly",
+      neighborhood: "Tamiami",
+      zip: "33185",
+      specs: ["Saltwater", "About 10,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
+      photo: "weekly-pool-tamiami-33185.webp",
+      alt: "Clear freeform saltwater pool with lush plants and a rock waterfall in Tamiami.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33176-b-weekly",
+      neighborhood: "Kendall",
+      zip: "33176",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      heater: "Heated (gas heater)",
+      photo: "weekly-pool-kendall-33176-b.webp",
+      alt: "Clear kidney-shaped chlorine pool with turtle tiles, a safety fence, and palms in Kendall.",
+      width: 1600,
+      height: 1600
     }
   ];
 
@@ -93,6 +214,46 @@
       .replace(/'/g, "&#39;");
   }
 
+  function automationLine(v) {
+    if (!v) return "";
+    v = String(v).trim();
+    if (!v) return "";
+    if (/automation system$/i.test(v)) return v;
+    if (/^automation$/i.test(v) || /^unknown$/i.test(v)) return "Automation system";
+    return v + " automation system";
+  }
+
+  function heaterLine(v) {
+    if (!v) return "";
+    v = String(v).trim();
+    if (!v) return "";
+    if (/^heated\s*\(/i.test(v)) return v;
+    if (/heat\s*pump/i.test(v)) return "Heated (heat pump)";
+    if (/gas/i.test(v)) return "Heated (gas heater)";
+    return v;
+  }
+
+  function collectSpecs(item) {
+    var specs = (item.specs && item.specs.length) ? item.specs.slice() : [];
+    var extras = [];
+    if (item.pump) extras.push(item.pump);
+    var auto = automationLine(item.automation);
+    if (auto) extras.push(auto);
+    var heat = heaterLine(item.heater);
+    if (heat) extras.push(heat);
+    if (!extras.length) return specs;
+    var idx = -1;
+    for (var i = 0; i < specs.length; i++) {
+      if (/filter/i.test(specs[i])) idx = i;
+    }
+    if (idx >= 0) {
+      for (var j = extras.length - 1; j >= 0; j--) specs.splice(idx + 1, 0, extras[j]);
+    } else {
+      specs = specs.concat(extras);
+    }
+    return specs;
+  }
+
   function renderPool(pool) {
     var src = IMG_DIR + (pool.photo || "");
     var w = pool.width || 1600;
@@ -101,7 +262,7 @@
     if (place && pool.zip) place += ", FL " + pool.zip;
     var facts = [];
     if (place) facts.push(place);
-    if (pool.specs && pool.specs.length) facts = facts.concat(pool.specs);
+    facts = facts.concat(collectSpecs(pool));
     var list = facts.length
       ? '<ul class="recent-work-facts">' +
         facts.map(function (s) { return "<li>" + escapeHtml(s) + "</li>"; }).join("") +

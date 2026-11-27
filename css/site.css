@@ -2087,9 +2087,9 @@ a.tel-inline { color: var(--navy); font-weight: 800; text-underline-offset: 3px;
   .serviced-pools { padding: 96px 0; }
   .serviced-pools-grid { gap: 18px; }
   .serviced-pools-card {
-    flex: 0 1 calc((100% - 18px) / 2);
-    width: calc((100% - 18px) / 2);
-    max-width: calc((100% - 18px) / 2);
+    flex: 0 1 calc((100% - 36px) / 3);
+    width: calc((100% - 36px) / 3);
+    max-width: calc((100% - 36px) / 3);
   }
 }
 @media (max-width: 640px) {

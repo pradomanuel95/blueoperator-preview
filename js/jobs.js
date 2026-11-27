@@ -220,6 +220,47 @@
     });
   }
 
+
+  function automationLine(v) {
+    if (!v) return "";
+    v = String(v).trim();
+    if (!v) return "";
+    if (/automation system$/i.test(v)) return v;
+    if (/^automation$/i.test(v) || /^unknown$/i.test(v)) return "Automation system";
+    return v + " automation system";
+  }
+
+  function heaterLine(v) {
+    if (!v) return "";
+    v = String(v).trim();
+    if (!v) return "";
+    if (/^heated\s*\(/i.test(v)) return v;
+    if (/heat\s*pump/i.test(v)) return "Heated (heat pump)";
+    if (/gas/i.test(v)) return "Heated (gas heater)";
+    return v;
+  }
+
+  function collectSpecs(item) {
+    var specs = (item.specs && item.specs.length) ? item.specs.slice() : [];
+    var extras = [];
+    if (item.pump) extras.push(item.pump);
+    var auto = automationLine(item.automation);
+    if (auto) extras.push(auto);
+    var heat = heaterLine(item.heater);
+    if (heat) extras.push(heat);
+    if (!extras.length) return specs;
+    var idx = -1;
+    for (var i = 0; i < specs.length; i++) {
+      if (/filter/i.test(specs[i])) idx = i;
+    }
+    if (idx >= 0) {
+      for (var j = extras.length - 1; j >= 0; j--) specs.splice(idx + 1, 0, extras[j]);
+    } else {
+      specs = specs.concat(extras);
+    }
+    return specs;
+  }
+
   function renderJob(job) {
     var before = IMG_DIR + job.before;
     var after = IMG_DIR + job.after;
@@ -229,7 +270,7 @@
     if (place && job.zip) place += ", FL " + job.zip;
     var facts = [];
     if (place) facts.push(place);
-    if (job.specs && job.specs.length) facts = facts.concat(job.specs);
+    facts = facts.concat(collectSpecs(job));
     var note = job.note
       ? '<p class="recent-work-note">' + escapeHtml(job.note) + "</p>"
       : "";
