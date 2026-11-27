@@ -1,10 +1,11 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811251355";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811271002";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
-      id: "kendall-green-to-clean",
+      id: "kendall-33173-green-to-clean",
       neighborhood: "Kendall",
+      zip: "33173",
       service: "Green-to-clean recovery",
       note: "The water had turned green. We brushed, balanced and filtered it back to clear.",
       specs: ["Saltwater", "About 15,000 gallons", "Cartridge filter"],
@@ -16,15 +17,16 @@
       height: 1699
     },
     {
-      id: "miami-dade-green-to-clean",
-      neighborhood: "Miami-Dade",
+      id: "kendall-33176-green-to-clean",
+      neighborhood: "Kendall",
+      zip: "33176",
       service: "Green-to-clean recovery",
       note: "This one was green when we got the call. Now it's ready to swim.",
       specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter", "Spa"],
-      before: "green-pool-before-miami-dade.webp",
-      after: "green-to-clean-after-miami-dade.webp",
-      altBefore: "Green kidney-shaped pool with a spa, pink deck, and shed in Miami-Dade, before recovery.",
-      altAfter: "The same Miami-Dade kidney-shaped pool with a spa, pink deck, and shed, after recovery, with clear water.",
+      before: "green-pool-before-kendall-33176.webp",
+      after: "green-to-clean-after-kendall-33176.webp",
+      altBefore: "Green kidney-shaped pool with a spa, pink deck, and shed in Kendall, before recovery.",
+      altAfter: "The same Kendall kidney-shaped pool with a spa, pink deck, and shed, after recovery, with clear water.",
       width: 1600,
       height: 1699
     }
@@ -136,7 +138,9 @@
     var after = IMG_DIR + job.after;
     var w = job.width || 1600;
     var h = job.height || 1699;
-    var label = (job.neighborhood || "") + " · " + (job.service || "Green-to-clean recovery");
+    var place = job.neighborhood || "";
+    if (place && job.zip) place += ", FL " + job.zip;
+    var label = (place ? place + " · " : "") + (job.service || "Green-to-clean recovery");
     var note = job.note
       ? '<p class="recent-work-note">' + escapeHtml(job.note) + "</p>"
       : "";
