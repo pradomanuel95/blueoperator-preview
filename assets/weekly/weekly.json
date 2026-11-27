@@ -66,6 +66,23 @@
       "height": 1600
     },
     {
+      "id": "kendall-33176-c-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Saltwater",
+        "About 45,000 gallons",
+        "Quad cartridge filter"
+      ],
+      "pump": "Variable-speed pump",
+      "automation": "Pentair automation system",
+      "heater": "Heated (heat pump)",
+      "photo": "weekly-pool-kendall-33176-c.webp",
+      "alt": "Clear freeform saltwater pool with a raised spa, palms, and a white fence in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
       "id": "kendall-33186-c-weekly",
       "neighborhood": "Kendall",
       "zip": "33186",
@@ -320,6 +337,96 @@
       "heater": "Heated (gas heater)",
       "photo": "weekly-pool-kendall-33176-b.webp",
       "alt": "Clear kidney-shaped chlorine pool with turtle tiles, a safety fence, and palms in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-d-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Chlorine",
+        "About 13,000 gallons",
+        "Sand filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33176-d.webp",
+      "alt": "Clear rectangular chlorine pool with a suction cleaner and a green patio umbrella in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-e-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Chlorine",
+        "About 13,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33176-e.webp",
+      "alt": "Clear freeform chlorine pool with a safety fence and a striped patio umbrella in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-f-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Chlorine",
+        "About 11,000 gallons",
+        "Sand filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33176-f.webp",
+      "alt": "Clear rectangular chlorine pool with a suction cleaner and white patio chairs in Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-lakes-33183-c-weekly",
+      "neighborhood": "Kendall Lakes",
+      "zip": "33183",
+      "specs": [
+        "Chlorine",
+        "About 15,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-lakes-33183-c.webp",
+      "alt": "Clear rectangular chlorine pool under a screen enclosure with terracotta tile in Kendall Lakes.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "tamiami-33185-b-weekly",
+      "neighborhood": "Tamiami",
+      "zip": "33185",
+      "specs": [
+        "Saltwater",
+        "About 4,200 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-tamiami-33185-b.webp",
+      "alt": "Clear freeform saltwater pool with a paver deck and hedges in Tamiami.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33186-i-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33186",
+      "specs": [
+        "Chlorine",
+        "About 14,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33186-i.webp",
+      "alt": "Clear rectangular chlorine pool under a screen enclosure with a light stone deck in Kendall.",
       "width": 1600,
       "height": 1600
     }

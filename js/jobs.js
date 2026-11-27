@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811271140";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811272115";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
@@ -10,6 +10,7 @@
       service: "Green-to-clean recovery",
       note: "The water had turned green. We brushed, balanced and filtered it back to clear.",
       specs: ["Saltwater", "About 15,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
       before: "green-pool-before-kendall.webp",
       after: "green-to-clean-after-kendall.webp",
       altBefore: "Green rectangular pool in Kendall before recovery, with cloudy green water and a mosaic tile sun shelf.",
@@ -25,6 +26,8 @@
       service: "Green-to-clean recovery",
       note: "This one was green when we got the call. Now it's ready to swim.",
       specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter", "Spa"],
+      pump: "Single-speed pump",
+      automation: "Jandy automation system",
       before: "green-pool-before-kendall-33176.webp",
       after: "green-to-clean-after-kendall-33176.webp",
       altBefore: "Green kidney-shaped pool with a spa, pink deck, and shed in Kendall, before recovery.",
@@ -40,6 +43,7 @@
       service: "Green-to-clean recovery",
       note: "The pool had gone a heavy green. The water is clear now.",
       specs: ["Chlorine", "About 5,000 gallons", "Cartridge filter"],
+      pump: "Variable-speed pump",
       before: "green-pool-before-hammocks-33193.webp",
       after: "green-to-clean-after-hammocks-33193.webp",
       altBefore: "Green rectangular pool with a sun shelf and screen enclosure in The Hammocks, before recovery.",
@@ -54,6 +58,7 @@
       service: "Green-to-clean recovery",
       note: "Algae had taken over the water. We cleaned it back to clear.",
       specs: ["Chlorine", "About 13,000 gallons", "Sand filter"],
+      pump: "Single-speed pump",
       before: "green-pool-before-kendall-33186-b.webp",
       after: "green-to-clean-after-kendall-33186-b.webp",
       altBefore: "Green rectangular pool with brick coping and a safety fence in Kendall, before recovery.",
@@ -68,6 +73,9 @@
       service: "Algae-to-clear recovery",
       note: "Algae had clouded the water green. We brought it back to clear.",
       specs: ["Saltwater", "About 40,000 gallons", "Quad cartridge filter"],
+      pump: "Variable-speed pump",
+      automation: "Jandy automation system",
+      heater: "Heated (heat pump)",
       before: "cloudy-pool-before-kendall-33176-b.webp",
       after: "clear-pool-after-kendall-33176-b.webp",
       altBefore: "Saltwater pool in Kendall with algae-clouded green water, a white house, and light stone deck, before it was cleared.",
@@ -82,6 +90,7 @@
       service: "Green-to-clean recovery",
       note: "Green and cloudy when we started. Clear blue now.",
       specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
       before: "green-pool-before-kendall-33186.webp",
       after: "green-to-clean-after-kendall-33186.webp",
       altBefore: "Green pool with a rounded sun shelf, safety fence, and terracotta deck in Kendall, before recovery.",
@@ -96,6 +105,7 @@
       service: "Green-to-clean recovery",
       note: "The water was murky green. It's clear again.",
       specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
       before: "green-pool-before-kendall-lakes-33183.webp",
       after: "green-to-clean-after-kendall-lakes-33183.webp",
       altBefore: "Murky green rectangular pool with a white stone deck and pergola in Kendall Lakes, before recovery.",
@@ -110,6 +120,7 @@
       service: "Light algae cleanup",
       note: "A light algae bloom had turned the water cloudy green. We cleared it up before it got worse.",
       specs: ["Chlorine", "About 7,500 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
       before: "light-algae-pool-before-west-kendall-33196.webp",
       after: "clear-pool-after-west-kendall-33196.webp",
       altBefore: "Oval pool with light cloudy green water, a sun shelf, and a tile roof in West Kendall, before it was cleared.",
