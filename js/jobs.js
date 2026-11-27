@@ -1,9 +1,10 @@
 (function () {
-  var DATA_URL = "assets/jobs/jobs.json?v=1811271032";
+  var DATA_URL = "assets/jobs/jobs.json?v=1811271120";
   var IMG_DIR = "assets/jobs/";
   var FALLBACK = [
     {
       id: "kendall-33173-green-to-clean",
+      home: true,
       neighborhood: "Kendall",
       zip: "33173",
       service: "Green-to-clean recovery",
@@ -18,6 +19,7 @@
     },
     {
       id: "kendall-33176-green-to-clean",
+      home: true,
       neighborhood: "Kendall",
       zip: "33176",
       service: "Green-to-clean recovery",
@@ -32,6 +34,7 @@
     },
     {
       id: "hammocks-33193-green-to-clean",
+      home: true,
       neighborhood: "The Hammocks",
       zip: "33193",
       service: "Green-to-clean recovery",
@@ -41,6 +44,76 @@
       after: "green-to-clean-after-hammocks-33193.webp",
       altBefore: "Green rectangular pool with a sun shelf and screen enclosure in The Hammocks, before recovery.",
       altAfter: "The same Hammocks pool after recovery, with clear water, a sun shelf, and screen enclosure.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "kendall-33186-b-green-to-clean",
+      neighborhood: "Kendall",
+      zip: "33186",
+      service: "Green-to-clean recovery",
+      note: "Algae had taken over the water. We cleaned it back to clear.",
+      specs: ["Chlorine", "About 13,000 gallons", "Sand filter"],
+      before: "green-pool-before-kendall-33186-b.webp",
+      after: "green-to-clean-after-kendall-33186-b.webp",
+      altBefore: "Green rectangular pool with brick coping and a safety fence in Kendall, before recovery.",
+      altAfter: "Clear rectangular pool with brick coping and a handrail in Kendall after recovery.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "kendall-33186-green-to-clean",
+      neighborhood: "Kendall",
+      zip: "33186",
+      service: "Green-to-clean recovery",
+      note: "Green and cloudy when we started. Clear blue now.",
+      specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
+      before: "green-pool-before-kendall-33186.webp",
+      after: "green-to-clean-after-kendall-33186.webp",
+      altBefore: "Green pool with a rounded sun shelf, safety fence, and terracotta deck in Kendall, before recovery.",
+      altAfter: "The same Kendall pool after recovery, with clear blue water, a rounded sun shelf, and safety fence.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "kendall-33176-cloudy-to-clear",
+      neighborhood: "Kendall",
+      zip: "33176",
+      service: "Cloudy-to-clear recovery",
+      note: "The water had gone cloudy. We brought it back to clear.",
+      specs: ["Saltwater", "About 40,000 gallons", "Quad cartridge filter"],
+      before: "cloudy-pool-before-kendall-33176-b.webp",
+      after: "clear-pool-after-kendall-33176-b.webp",
+      altBefore: "Cloudy saltwater pool in Kendall before it was cleared, with a white house and light stone deck.",
+      altAfter: "The same Kendall pool after the water was cleared, with a white house and light stone deck.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "kendall-lakes-33183-green-to-clean",
+      neighborhood: "Kendall Lakes",
+      zip: "33183",
+      service: "Green-to-clean recovery",
+      note: "The water was murky green. It's clear again.",
+      specs: ["Chlorine", "About 11,000 gallons", "Cartridge filter"],
+      before: "green-pool-before-kendall-lakes-33183.webp",
+      after: "green-to-clean-after-kendall-lakes-33183.webp",
+      altBefore: "Murky green rectangular pool with a white stone deck and pergola in Kendall Lakes, before recovery.",
+      altAfter: "The same Kendall Lakes pool after recovery, with clear water, white stone deck, and a pergola at the far end.",
+      width: 1600,
+      height: 1699
+    },
+    {
+      id: "west-kendall-33196-algae-to-clear",
+      neighborhood: "West Kendall",
+      zip: "33196",
+      service: "Light algae cleanup",
+      note: "A light algae bloom had turned the water cloudy green. We cleared it up before it got worse.",
+      specs: ["Chlorine", "About 7,500 gallons", "Cartridge filter"],
+      before: "light-algae-pool-before-west-kendall-33196.webp",
+      after: "clear-pool-after-west-kendall-33196.webp",
+      altBefore: "Oval pool with light cloudy green water, a sun shelf, and a tile roof in West Kendall, before it was cleared.",
+      altAfter: "The same West Kendall pool after the water was cleared, with a sun shelf and tile roof.",
       width: 1600,
       height: 1699
     }
@@ -170,7 +243,7 @@
       (job.service ? ", " + job.service : "");
 
     return (
-      '<figure class="recent-work-job">' +
+      '<figure class="recent-work-job" data-job-id="' + escapeHtml(job.id || "") + '">' +
         '<div class="ba-slider" style="--pos:50%;--ba-w:' + w + ";--ba-h:" + h + ';" role="slider" tabindex="0" aria-label="' + escapeHtml(aria) + '" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50 percent before">' +
           '<img class="ba-after" src="' + escapeHtml(after) + '" alt="' + escapeHtml(job.altAfter || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
           '<img class="ba-before" src="' + escapeHtml(before) + '" alt="' + escapeHtml(job.altBefore || "") + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
@@ -192,6 +265,13 @@
     );
   }
 
+  function selectJobs(jobs, mode) {
+    if (!jobs || !jobs.length) return [];
+    if (mode === "all") return jobs;
+    var featured = jobs.filter(function (j) { return j.home; });
+    return featured.length ? featured : jobs.slice(0, 3);
+  }
+
   function mount(jobs) {
     var grid = document.getElementById("recent-work-grid");
     if (!grid || !jobs || !jobs.length) return;
@@ -200,10 +280,16 @@
   }
 
   function start() {
-    fetch(DATA_URL, { credentials: "same-origin" })
+    var grid = document.getElementById("recent-work-grid");
+    if (!grid) return;
+    var dataUrl = grid.getAttribute("data-src") || DATA_URL;
+    var imgDir = grid.getAttribute("data-img-dir");
+    if (imgDir) IMG_DIR = imgDir;
+    var mode = grid.getAttribute("data-jobs") || "home";
+    fetch(dataUrl, { credentials: "same-origin" })
       .then(function (res) { if (!res.ok) throw new Error("jobs.json " + res.status); return res.json(); })
-      .then(function (data) { mount((data && data.jobs) || FALLBACK); })
-      .catch(function () { mount(FALLBACK); });
+      .then(function (data) { mount(selectJobs((data && data.jobs) || FALLBACK, mode)); })
+      .catch(function () { mount(selectJobs(FALLBACK, mode)); });
   }
 
   if (document.readyState === "loading") {
