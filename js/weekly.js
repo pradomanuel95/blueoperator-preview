@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811280412";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811280512";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
@@ -655,6 +655,39 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-the-crossings-33186.webp",
       alt: "Clear rectangular chlorine pool with travertine coping, a pergola, and a blue umbrella in The Crossings.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "west-kendall-33193-c-weekly",
+      neighborhood: "West Kendall",
+      zip: "33193",
+      specs: ["Chlorine", "About 10,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-west-kendall-33193-c.webp",
+      alt: "Clear freeform chlorine pool with a raised spa, blue tile, and a wooden fence in West Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "kendall-33176-l-weekly",
+      neighborhood: "Kendall",
+      zip: "33176",
+      specs: ["Chlorine", "About 9,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-kendall-33176-l.webp",
+      alt: "Clear freeform chlorine pool with stone coping, a brick deck, and a vacuum hose in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "fontainebleau-33144-weekly",
+      neighborhood: "Fontainebleau",
+      zip: "33144",
+      specs: ["Saltwater", "About 16,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-fontainebleau-33144.webp",
+      alt: "Clear rectangular saltwater pool with a raised spa, travertine deck, and a pergola in Fontainebleau.",
       width: 1600,
       height: 1600
     }
