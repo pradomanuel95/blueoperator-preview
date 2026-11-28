@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811280348";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811280412";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
@@ -644,6 +644,17 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-kendall-33176-k.webp",
       alt: "Clear rectangular chlorine pool with a stone deck and a white house in Kendall.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "the-crossings-33186-weekly",
+      neighborhood: "The Crossings",
+      zip: "33186",
+      specs: ["Chlorine", "About 13,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-the-crossings-33186.webp",
+      alt: "Clear rectangular chlorine pool with travertine coping, a pergola, and a blue umbrella in The Crossings.",
       width: 1600,
       height: 1600
     }
