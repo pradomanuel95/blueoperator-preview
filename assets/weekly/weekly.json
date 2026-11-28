@@ -929,6 +929,21 @@
       "alt": "Clear rectangular saltwater pool with a raised spa, travertine deck, and a pergola in Fontainebleau.",
       "width": 1600,
       "height": 1600
+    },
+    {
+      "id": "sunset-33173-weekly",
+      "neighborhood": "Sunset",
+      "zip": "33173",
+      "specs": [
+        "Chlorine",
+        "About 8,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-sunset-33173.webp",
+      "alt": "Clear rectangular chlorine pool with a safety fence, a ladder, and a wooden fence in Sunset.",
+      "width": 1600,
+      "height": 1600
     }
   ]
 }
