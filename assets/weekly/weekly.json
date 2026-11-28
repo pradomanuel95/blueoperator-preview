@@ -839,6 +839,36 @@
       "alt": "Clear rectangular saltwater pool with a mosaic tile band and a vacuum hose in Olympia Heights.",
       "width": 1600,
       "height": 1600
+    },
+    {
+      "id": "west-kendall-33193-b-weekly",
+      "neighborhood": "West Kendall",
+      "zip": "33193",
+      "specs": [
+        "Chlorine",
+        "About 8,500 gallons",
+        "Quad cartridge filter"
+      ],
+      "pump": "Variable-speed pump",
+      "photo": "weekly-pool-west-kendall-33193-b.webp",
+      "alt": "Clear rectangular chlorine pool with blue mosaic tile, a raised spa, and a white deck in West Kendall.",
+      "width": 1600,
+      "height": 1600
+    },
+    {
+      "id": "kendall-33176-k-weekly",
+      "neighborhood": "Kendall",
+      "zip": "33176",
+      "specs": [
+        "Chlorine",
+        "About 20,000 gallons",
+        "Cartridge filter"
+      ],
+      "pump": "Single-speed pump",
+      "photo": "weekly-pool-kendall-33176-k.webp",
+      "alt": "Clear rectangular chlorine pool with a stone deck and a white house in Kendall.",
+      "width": 1600,
+      "height": 1600
     }
   ]
 }
