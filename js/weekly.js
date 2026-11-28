@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811280605";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811281048";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
@@ -699,6 +699,17 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-sunset-33173.webp",
       alt: "Clear rectangular chlorine pool with a safety fence, a ladder, and a wooden fence in Sunset.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "west-kendall-33185-b-weekly",
+      neighborhood: "West Kendall",
+      zip: "33185",
+      specs: ["Saltwater", "About 13,000 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-west-kendall-33185-b.webp",
+      alt: "Clear freeform saltwater pool with a raised spa, brick coping, and a white fence in West Kendall.",
       width: 1600,
       height: 1600
     }
