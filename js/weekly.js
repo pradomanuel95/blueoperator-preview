@@ -1,5 +1,5 @@
 (function () {
-  var DATA_URL = "assets/weekly/weekly.json?v=1811272259";
+  var DATA_URL = "assets/weekly/weekly.json?v=1811280335";
   var IMG_DIR = "assets/weekly/";
   var PAGE_SIZE_DESKTOP = 9;
   var PAGE_SIZE_MOBILE = 6;
@@ -611,6 +611,17 @@
       pump: "Single-speed pump",
       photo: "weekly-pool-kendall-lakes-33183-f.webp",
       alt: "Clear rectangular saltwater pool with a mosaic-tile step and lounge chairs in Kendall Lakes.",
+      width: 1600,
+      height: 1600
+    },
+    {
+      id: "olympia-heights-33155-weekly",
+      neighborhood: "Olympia Heights",
+      zip: "33155",
+      specs: ["Saltwater", "About 7,500 gallons", "Cartridge filter"],
+      pump: "Single-speed pump",
+      photo: "weekly-pool-olympia-heights-33155.webp",
+      alt: "Clear rectangular saltwater pool with a mosaic tile band and a vacuum hose in Olympia Heights.",
       width: 1600,
       height: 1600
     }
